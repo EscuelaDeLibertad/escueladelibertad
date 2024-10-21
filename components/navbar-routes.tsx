@@ -24,7 +24,7 @@ const NavbarRoutes = () => {
 			)}
 			<div
 				className={`w-full flex gap-x-2 ${
-					!isTeacher(userId) ? "justify-end" : "justify-between"
+					!isTeacher(userId) ? "justify-between" : "justify-end"
 				}`}
 			>
 				{isTeacherPage || isCoursePage ? (
@@ -41,7 +41,9 @@ const NavbarRoutes = () => {
 						</Button>
 					</Link>
 				) : null}
-				<UserButton showName />
+				<div className="w-full flex items-center justify-end">
+					<UserButton showName />
+				</div>
 			</div>
 		</>
 	);
