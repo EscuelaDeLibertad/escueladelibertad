@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Compass, Layout, List } from "lucide-react";
+import { BarChart, Compass, Earth, Layout, List } from "lucide-react";
 import SidebarItem from "./sidebar-item";
 import { usePathname } from "next/navigation";
 
@@ -14,6 +14,11 @@ const guestRoutes = [
 		icon: Compass,
 		label: "Buscar",
 		href: "/search",
+	},
+	{
+		icon: Earth,
+		label: "Menu Interactivo",
+		href: "/interactive-menu",
 	},
 ];
 
