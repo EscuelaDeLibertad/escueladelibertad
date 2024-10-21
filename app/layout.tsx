@@ -18,7 +18,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider localization={esES} afterSignOutUrl="/">
+		<ClerkProvider
+			localization={esES}
+			afterSignOutUrl="/"
+			signInForceRedirectUrl="/search"
+			signUpForceRedirectUrl="/search"
+		>
 			<html lang="en">
 				<body className={inter.className}>
 					<ToastProvider />

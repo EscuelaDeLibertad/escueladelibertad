@@ -1,7 +1,18 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Logo = () => {
-	return <Image height={60} width={60} alt="logo" src="/logo.svg" />;
+	const router = useRouter();
+	return (
+		<div
+			onClick={() => router.push("/search")}
+			className="flex items-center gap-x-2 cursor-pointer mb-2"
+		>
+			<Image height={60} width={60} alt="logo" src="/logo.svg" />
+			<p className="text-xl font-bold text-blue-800">E-Learning</p>
+		</div>
+	);
 };
 
 export default Logo;
