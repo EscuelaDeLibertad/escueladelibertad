@@ -1,4 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
+	const router = useRouter();
 	return (
 		<>
 			<main
@@ -24,141 +28,181 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 						: "opacity-0 pointer-events-none"
 				}`}
 				>
-					<div className="absolute top-[200px] left-[50%] translate-x-[-50%] flex flex-col gap-4 items-center justify-center mb-4">
-						<h1 className="text-5xl text-white opacity-90">
-							Bienvenidos a Escuela de Libertad
-						</h1>
-						<p className="text-white">
-							lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-							quos.
-						</p>
+					<div className="mt-60 flex flex-col gap-4 items-center justify-center mb-4">
 						<div className="flex gap-6">
 							<button
 								onClick={() => onChangeScreen("Isla1")}
-								className="bg-gray-400 bg-opacity-50 p-3 rounded-full text-white font-medium"
+								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
 							>
-								Visita la Isla 1
+								El Río de la Vida
 							</button>
 							<button
 								onClick={() => onChangeScreen("Isla2")}
-								className="bg-gray-400 bg-opacity-50 p-3 rounded-full text-white font-medium"
+								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
 							>
-								Visita la Isla 2
+								Sabiduría Zen
 							</button>
 							<button
 								onClick={() => onChangeScreen("Isla3")}
-								className="bg-gray-400 bg-opacity-50 p-3 rounded-full text-white font-medium"
+								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
 							>
-								Visita la Isla 3
+								Tao de la Meditación I
 							</button>
 							<button
 								onClick={() => onChangeScreen("Isla4")}
-								className="bg-gray-400 bg-opacity-50 p-3 rounded-full text-white font-medium"
+								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
 							>
-								Visita la Isla 4
+								Alkimia Interna
 							</button>
 						</div>
+						<h1 className="text-4xl text-white opacity-90">
+							Bienvenidos a Escuela de Libertad
+						</h1>
+						<p className="text-white text-sm font-thin">
+							lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+							quos.
+						</p>
 					</div>
 				</section>
 			</main>
 			<section
-				className={`absolute top-[20%] right-[15%] translate-x-[50%] translate-y-[50%] flex flex-col p-10 transition-opacity duration-1000 z-10 w-[600px] ${
+				className={`fixed 2xl:top-0 2xl:right-[300px] top-[-100px] right-[200px] translate-x-[50%] translate-y-[50%] flex flex-col p-10 transition-opacity duration-1000 z-10 2xl:w-[600px] w-[400px] ${
 					currentScreen === "Isla1" && !isAnimating
 						? ""
 						: "opacity-0 pointer-events-none"
 				}`}
 			>
-				<div className="md:max-w-2xl">
-					<h2 className="text-7xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
-						Isla 1
+				<div className="bg-[#D9D9D999] rounded-lg p-6">
+					<h2 className="2xl:text-7xl text-2xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
+						El Río de la Vida
 					</h2>
-					<p className="text-white mt-2 pointer-events-none">
+					<p className="text-white mt-2 pointer-events-none 2xl:text-md text-sm">
 						Sint eu velit aute nostrud deserunt. In ipsum magna do amet ullamco
 						excepteur elit commodo sunt dolore dolor nostrud. Cupidatat
 						excepteur officia consequat quis veniam non proident irure laboris.
 						Eu duis dolore deserunt consectetur consectetur enim.
 					</p>
-					<button
-						onClick={() => onChangeScreen("InicioIsla1")}
-						className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
-					>
-						Regresar al inicio
-					</button>
+					<div className="flex gap-2 2xl:flex-row flex-col">
+						<button
+							onClick={() => onChangeScreen("InicioIsla1")}
+							className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Regresar al menú
+						</button>
+						<button
+							onClick={() =>
+								router.push("/courses/881228e9-889b-4633-bdcb-95980ad46fc3")
+							}
+							className="bg-sky-800 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Ir al curso
+						</button>
+					</div>
 				</div>
 			</section>
 			<section
-				className={`fixed top-[50%] left-[15%] translate-x-[-50%] translate-y-[-50%] flex flex-col p-10 transition-opacity duration-1000 z-10 w-[600px] ${
+				className={`fixed 2xl:top-0 2xl:right-[300px] top-[-100px] right-[200px] translate-x-[50%] translate-y-[50%] flex flex-col p-10 transition-opacity duration-1000 z-10 2xl:w-[600px] w-[400px] ${
 					currentScreen === "Isla2" && !isAnimating
 						? ""
 						: "opacity-0 pointer-events-none"
 				}`}
 			>
-				<div className="md:max-w-2xl">
-					<h2 className="text-7xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
-						Isla 2
+				<div className="bg-[#D9D9D999] rounded-lg p-6">
+					<h2 className="2xl:text-7xl text-2xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
+						Sabiduría Zen
 					</h2>
-					<p className="text-white mt-2">
+					<p className="text-white mt-2 pointer-events-none 2xl:text-md text-sm">
 						Sint eu velit aute nostrud deserunt. In ipsum magna do amet ullamco
 						excepteur elit commodo sunt dolore dolor nostrud. Cupidatat
 						excepteur officia consequat quis veniam non proident irure laboris.
 						Eu duis dolore deserunt consectetur consectetur enim.
 					</p>
-					<button
-						onClick={() => onChangeScreen("InicioIsla2")}
-						className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
-					>
-						Regresar al inicio
-					</button>
+					<div className="flex gap-2 2xl:flex-row flex-col">
+						<button
+							onClick={() => onChangeScreen("InicioIsla2")}
+							className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Regresar al menú
+						</button>
+						<button
+							onClick={() =>
+								router.push("/courses/24885a44-42c3-4b0f-9d77-32db0ca81b55")
+							}
+							className="bg-sky-800 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Ir al curso
+						</button>
+					</div>
 				</div>
 			</section>
 			<section
-				className={`fixed top-[50%] left-[15%] translate-x-[-50%] translate-y-[-50%] flex flex-col p-10 transition-opacity duration-1000 z-10 w-[600px] ${
+				className={`fixed 2xl:top-0 2xl:right-[300px] top-[-100px] right-[200px] translate-x-[50%] translate-y-[50%] flex flex-col p-10 transition-opacity duration-1000 z-10 2xl:w-[600px] w-[400px] ${
 					currentScreen === "Isla3" && !isAnimating
 						? ""
 						: "opacity-0 pointer-events-none"
 				}`}
 			>
-				<div className="md:max-w-2xl">
-					<h2 className="text-7xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
-						Isla 3
+				<div className="bg-[#D9D9D999] rounded-lg p-6">
+					<h2 className="2xl:text-7xl text-2xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
+						Tao de la Meditación I
 					</h2>
-					<p className="text-white mt-2">
+					<p className="text-white mt-2 pointer-events-none 2xl:text-md text-sm">
 						Sint eu velit aute nostrud deserunt. In ipsum magna do amet ullamco
 						excepteur elit commodo sunt dolore dolor nostrud. Cupidatat
 						excepteur officia consequat quis veniam non proident irure laboris.
 						Eu duis dolore deserunt consectetur consectetur enim.
 					</p>
-					<button
-						onClick={() => onChangeScreen("InicioIsla3")}
-						className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
-					>
-						Regresar al inicio
-					</button>
+					<div className="flex gap-2 2xl:flex-row flex-col">
+						<button
+							onClick={() => onChangeScreen("InicioIsla3")}
+							className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Regresar al menú
+						</button>
+						<button
+							onClick={() =>
+								router.push("/courses/1f984877-8128-4156-b0b5-be8a3dde7221")
+							}
+							className="bg-sky-800 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Ir al curso
+						</button>
+					</div>
 				</div>
 			</section>
 			<section
-				className={`fixed top-[50%] left-[15%] translate-x-[-50%] translate-y-[-50%] flex flex-col p-10 transition-opacity duration-1000 z-10 w-[600px] ${
+				className={`fixed 2xl:top-0 2xl:right-[300px] top-[-100px] right-[200px] translate-x-[50%] translate-y-[50%] flex flex-col p-10 transition-opacity duration-1000 z-10 2xl:w-[600px] w-[400px] ${
 					currentScreen === "Isla4" && !isAnimating
 						? ""
 						: "opacity-0 pointer-events-none"
 				}`}
 			>
-				<div className="md:max-w-2xl">
-					<h2 className="text-7xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
-						Isla 4
+				<div className="bg-[#D9D9D999] rounded-lg p-6">
+					<h2 className="2xl:text-7xl text-2xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
+						Alkimia Interna
 					</h2>
-					<p className="text-white mt-2">
+					<p className="text-white mt-2 pointer-events-none 2xl:text-md text-sm">
 						Sint eu velit aute nostrud deserunt. In ipsum magna do amet ullamco
 						excepteur elit commodo sunt dolore dolor nostrud. Cupidatat
 						excepteur officia consequat quis veniam non proident irure laboris.
 						Eu duis dolore deserunt consectetur consectetur enim.
 					</p>
-					<button
-						onClick={() => onChangeScreen("InicioIsla4")}
-						className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
-					>
-						Regresar al inicio
-					</button>
+					<div className="flex gap-2 2xl:flex-row flex-col">
+						<button
+							onClick={() => onChangeScreen("InicioIsla4")}
+							className="bg-gray-400 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Regresar al menú
+						</button>
+						<button
+							onClick={() =>
+								router.push("/courses/2a88e27f-0168-453c-9497-f5f6b746b7a3")
+							}
+							className="bg-sky-800 bg-opacity-50  p-3 mt-3 rounded-full text-white font-medium"
+						>
+							Ir al curso
+						</button>
+					</div>
 				</div>
 			</section>
 			{/* <section

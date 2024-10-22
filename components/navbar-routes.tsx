@@ -12,7 +12,7 @@ const NavbarRoutes = () => {
 	const pathname = usePathname();
 
 	const isTeacherPage = pathname?.startsWith("/teacher");
-	const isCoursePage = pathname?.includes("/courses");
+	const isCoursePage = pathname?.startsWith("/courses");
 	const isSearchPage = pathname === "/search";
 
 	return (
@@ -27,8 +27,16 @@ const NavbarRoutes = () => {
 					!isTeacher(userId) ? "justify-between" : "justify-end"
 				}`}
 			>
-				{isTeacherPage || isCoursePage ? (
-					<Link href="/">
+				{isCoursePage && (
+					<Link href="/search">
+						<Button size="sm" variant="ghost">
+							<ArrowLeftFromLine className="w-4 h-4 mr-2" />
+							Regresar a los cursos
+						</Button>
+					</Link>
+				)}
+				{isTeacherPage ? (
+					<Link href="/teacher/courses">
 						<Button size="sm" variant="ghost">
 							<ArrowLeftFromLine className="w-4 h-4 mr-2" />
 							Regresar

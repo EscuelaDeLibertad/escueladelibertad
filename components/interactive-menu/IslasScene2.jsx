@@ -12,7 +12,7 @@ export function IslasScene2(props) {
 	const isla1Ref = useRef();
 	const isla2Ref = useRef();
 	const isla3Ref = useRef();
-	// const isla4Ref = useRef();
+	const isla4Ref = useRef();
 	const { nodes, materials } = useGLTF(
 		"/assets/models/Scene2/escenaDePrueba2.gltf"
 	);
@@ -37,8 +37,8 @@ export function IslasScene2(props) {
 		if (
 			isla1Ref.current ||
 			isla2Ref.current ||
-			isla3Ref.current
-			// isla4Ref.current
+			isla3Ref.current ||
+			isla4Ref.current
 		) {
 			// Ajusta este valor para controlar la sensibilidad de la rotación
 			const rotationSpeed = 3.5;
@@ -47,7 +47,7 @@ export function IslasScene2(props) {
 			isla1Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla2Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla3Ref.current.rotation.y = mousePosition.x * rotationSpeed;
-			// isla4Ref.current.rotation.y = mousePosition.x * rotationSpeed;
+			isla4Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 		}
 	});
 
@@ -168,7 +168,7 @@ export function IslasScene2(props) {
 						name="foliageIsla2"
 						geometry={nodes.foliageIsla2.geometry}
 						material={materials.foliageIsla2}
-						position={[-5.075, 0.108, 0.778]}
+						position={[0, 0, 0]}
 					/>
 					<group name="hairIsla2" position={[0, 0, 0]}>
 						<mesh
@@ -381,251 +381,277 @@ export function IslasScene2(props) {
 					position={[5.886, 0.126, 0.8]}
 				/>
 
-				<mesh
-					name="acceorios001"
-					geometry={nodes.acceorios001.geometry}
-					material={materials.characterIsla4Tex}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<group name="camista001" position={[15.126, 0.3, 0.776]}>
+				<group ref={isla4Ref} position={[15.126, 0.3, 0.776]}>
 					<mesh
-						name="Face_(merged)(Clone)baked015"
-						geometry={nodes["Face_(merged)(Clone)baked015"].geometry}
-						material={materials.camisetaIsla4Tex}
-					/>
-					<mesh
-						name="Face_(merged)(Clone)baked015_1"
-						geometry={nodes["Face_(merged)(Clone)baked015_1"].geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="capaIsla4001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Face_(merged)(Clone)baked017"
-						geometry={nodes["Face_(merged)(Clone)baked017"].geometry}
-						material={materials.capaIsla4Tex}
-					/>
-					<mesh
-						name="Face_(merged)(Clone)baked017_1"
-						geometry={nodes["Face_(merged)(Clone)baked017_1"].geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<mesh
-					name="Circle"
-					geometry={nodes.Circle.geometry}
-					material={materials.cafe}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<group name="Circle003" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Circle006"
-						geometry={nodes.Circle006.geometry}
-						material={materials.farolIsla4Tex}
-					/>
-					<mesh
-						name="Circle006_1"
-						geometry={nodes.Circle006_1.geometry}
-						material={materials["outline.001"]}
-					/>
-					<mesh
-						name="Circle006_2"
-						geometry={nodes.Circle006_2.geometry}
-						material={materials.coral}
-					/>
-					<mesh
-						name="Circle006_3"
-						geometry={nodes.Circle006_3.geometry}
-						material={materials.coral2Isla4tex}
-					/>
-					<mesh
-						name="Circle006_4"
-						geometry={nodes.Circle006_4.geometry}
-						material={materials.coral3Isla4Tex}
-					/>
-					<mesh
-						name="Circle006_5"
-						geometry={nodes.Circle006_5.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Circle006_6"
-						geometry={nodes.Circle006_6.geometry}
-						material={materials.weeds}
-					/>
-				</group>
-				<group name="Cube" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Cube001_1"
-						geometry={nodes.Cube001_1.geometry}
-						material={materials["baseIsla4.001"]}
-					/>
-					<mesh
-						name="Cube001_2"
-						geometry={nodes.Cube001_2.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="Cube001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Cube035"
-						geometry={nodes.Cube035.geometry}
-						material={materials["baseIsla4.001"]}
-					/>
-					<mesh
-						name="Cube035_1"
-						geometry={nodes.Cube035_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<mesh
-					name="Cylinder"
-					geometry={nodes.Cylinder.geometry}
-					material={materials.lightIsla4}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<mesh
-					name="Cylinder001"
-					geometry={nodes.Cylinder001.geometry}
-					material={materials.lightIsla4}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<group name="Fish1" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane021"
-						geometry={nodes.Plane021.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Plane021_1"
-						geometry={nodes.Plane021_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="Fish1001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane073"
-						geometry={nodes.Plane073.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Plane073_1"
-						geometry={nodes.Plane073_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="Fish1002" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane074"
-						geometry={nodes.Plane074.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Plane074_1"
-						geometry={nodes.Plane074_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="Fish2" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane022"
-						geometry={nodes.Plane022.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Plane022_1"
-						geometry={nodes.Plane022_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="Fish3" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane036"
-						geometry={nodes.Plane036.geometry}
-						material={materials.fishIsla4Tex}
-					/>
-					<mesh
-						name="Plane036_1"
-						geometry={nodes.Plane036_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="fullBody001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Face_(merged)(Clone)baked014"
-						geometry={nodes["Face_(merged)(Clone)baked014"].geometry}
+						name="acceorios001"
+						geometry={nodes.acceorios001.geometry}
 						material={materials.characterIsla4Tex}
+						position={[0, 0, 0]}
+					/>
+					<group name="camista001" position={[0, 0, 0]}>
+						<mesh
+							name="Face_(merged)(Clone)baked015"
+							geometry={nodes["Face_(merged)(Clone)baked015"].geometry}
+							material={materials.camisetaIsla4Tex}
+						/>
+						<mesh
+							name="Face_(merged)(Clone)baked015_1"
+							geometry={nodes["Face_(merged)(Clone)baked015_1"].geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="capaIsla4001" position={[0, 0, 0]}>
+						<mesh
+							name="Face_(merged)(Clone)baked017"
+							geometry={nodes["Face_(merged)(Clone)baked017"].geometry}
+							material={materials.capaIsla4Tex}
+						/>
+						<mesh
+							name="Face_(merged)(Clone)baked017_1"
+							geometry={nodes["Face_(merged)(Clone)baked017_1"].geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<mesh
+						name="Circle"
+						geometry={nodes.Circle.geometry}
+						material={materials.cafe}
+						position={[0, 0, 0]}
+					/>
+					<group name="Circle003" position={[0, 0, 0]}>
+						<mesh
+							name="Circle006"
+							geometry={nodes.Circle006.geometry}
+							material={materials.farolIsla4Tex}
+						/>
+						<mesh
+							name="Circle006_1"
+							geometry={nodes.Circle006_1.geometry}
+							material={materials["outline.001"]}
+						/>
+						<mesh
+							name="Circle006_2"
+							geometry={nodes.Circle006_2.geometry}
+							material={materials.coral}
+						/>
+						<mesh
+							name="Circle006_3"
+							geometry={nodes.Circle006_3.geometry}
+							material={materials.coral2Isla4tex}
+						/>
+						<mesh
+							name="Circle006_4"
+							geometry={nodes.Circle006_4.geometry}
+							material={materials.coral3Isla4Tex}
+						/>
+						<mesh
+							name="Circle006_5"
+							geometry={nodes.Circle006_5.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Circle006_6"
+							geometry={nodes.Circle006_6.geometry}
+							material={materials.weeds}
+						/>
+					</group>
+					<group name="Cube" position={[0, 0, 0]}>
+						<mesh
+							name="Cube001_1"
+							geometry={nodes.Cube001_1.geometry}
+							material={materials["baseIsla4.001"]}
+						/>
+						<mesh
+							name="Cube001_2"
+							geometry={nodes.Cube001_2.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="Cube001" position={[0, 0, 0]}>
+						<mesh
+							name="Cube035"
+							geometry={nodes.Cube035.geometry}
+							material={materials["baseIsla4.001"]}
+						/>
+						<mesh
+							name="Cube035_1"
+							geometry={nodes.Cube035_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<mesh
+						name="Cylinder"
+						geometry={nodes.Cylinder.geometry}
+						material={materials.lightIsla4}
+						position={[0, 0, 0]}
 					/>
 					<mesh
-						name="Face_(merged)(Clone)baked014_1"
-						geometry={nodes["Face_(merged)(Clone)baked014_1"].geometry}
-						material={materials["outline.001"]}
+						name="Cylinder001"
+						geometry={nodes.Cylinder001.geometry}
+						material={materials.lightIsla4}
+						position={[0, 0, 0]}
 					/>
-				</group>
-				<group name="hair001" position={[15.126, 0.3, 0.776]}>
+					<group name="Fish1" position={[0, 0, 0]}>
+						<mesh
+							name="Plane021"
+							geometry={nodes.Plane021.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Plane021_1"
+							geometry={nodes.Plane021_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="Fish1001" position={[0, 0, 0]}>
+						<mesh
+							name="Plane073"
+							geometry={nodes.Plane073.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Plane073_1"
+							geometry={nodes.Plane073_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="Fish1002" position={[0, 0, 0]}>
+						<mesh
+							name="Plane074"
+							geometry={nodes.Plane074.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Plane074_1"
+							geometry={nodes.Plane074_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="Fish2" position={[0, 0, 0]}>
+						<mesh
+							name="Plane022"
+							geometry={nodes.Plane022.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Plane022_1"
+							geometry={nodes.Plane022_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="Fish3" position={[0, 0, 0]}>
+						<mesh
+							name="Plane036"
+							geometry={nodes.Plane036.geometry}
+							material={materials.fishIsla4Tex}
+						/>
+						<mesh
+							name="Plane036_1"
+							geometry={nodes.Plane036_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="fullBody001" position={[0, 0, 0]}>
+						<mesh
+							name="Face_(merged)(Clone)baked014"
+							geometry={nodes["Face_(merged)(Clone)baked014"].geometry}
+							material={materials.characterIsla4Tex}
+						/>
+						<mesh
+							name="Face_(merged)(Clone)baked014_1"
+							geometry={nodes["Face_(merged)(Clone)baked014_1"].geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="hair001" position={[0, 0, 0]}>
+						<mesh
+							name="RetopoFlow001"
+							geometry={nodes.RetopoFlow001.geometry}
+							material={materials.characterIsla4Tex}
+						/>
+						<mesh
+							name="RetopoFlow001_1"
+							geometry={nodes.RetopoFlow001_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="pantalon001" position={[0, 0, 0]}>
+						<mesh
+							name="Face_(merged)(Clone)baked016"
+							geometry={nodes["Face_(merged)(Clone)baked016"].geometry}
+							material={materials.pantalonIsla4Tex}
+						/>
+						<mesh
+							name="Face_(merged)(Clone)baked016_1"
+							geometry={nodes["Face_(merged)(Clone)baked016_1"].geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
 					<mesh
-						name="RetopoFlow001"
-						geometry={nodes.RetopoFlow001.geometry}
-						material={materials.characterIsla4Tex}
+						name="Plane"
+						geometry={nodes.Plane.geometry}
+						material={materials.baseIsla4}
+						position={[0, 0, 0]}
 					/>
+					<group name="Plane002" position={[0, 0, 0]}>
+						<mesh
+							name="Plane003_1"
+							geometry={nodes.Plane003_1.geometry}
+							material={materials.waterIsla4}
+						/>
+						<mesh
+							name="Plane003_2"
+							geometry={nodes.Plane003_2.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
 					<mesh
-						name="RetopoFlow001_1"
-						geometry={nodes.RetopoFlow001_1.geometry}
-						material={materials["outline.001"]}
+						name="Plane003"
+						geometry={nodes.Plane003.geometry}
+						material={materials.cafe}
+						position={[0, 0, 0]}
 					/>
-				</group>
-				<group name="pantalon001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Face_(merged)(Clone)baked016"
-						geometry={nodes["Face_(merged)(Clone)baked016"].geometry}
-						material={materials.pantalonIsla4Tex}
-					/>
-					<mesh
-						name="Face_(merged)(Clone)baked016_1"
-						geometry={nodes["Face_(merged)(Clone)baked016_1"].geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<mesh
-					name="Plane"
-					geometry={nodes.Plane.geometry}
-					material={materials.baseIsla4}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<group name="Plane002" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane003_1"
-						geometry={nodes.Plane003_1.geometry}
-						material={materials.waterIsla4}
-					/>
-					<mesh
-						name="Plane003_2"
-						geometry={nodes.Plane003_2.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<mesh
-					name="Plane003"
-					geometry={nodes.Plane003.geometry}
-					material={materials.cafe}
-					position={[15.126, 0.3, 0.776]}
-				/>
-				<group name="Sombrero001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Circle007"
-						geometry={nodes.Circle007.geometry}
-						material={materials.sombreroIsla4Tex}
-					/>
-					<mesh
-						name="Circle007_1"
-						geometry={nodes.Circle007_1.geometry}
-						material={materials.cintasIsla4}
-					/>
-					<mesh
-						name="Circle007_2"
-						geometry={nodes.Circle007_2.geometry}
-						material={materials["outline.001"]}
-					/>
+					<group name="Sombrero001" position={[0, 0, 0]}>
+						<mesh
+							name="Circle007"
+							geometry={nodes.Circle007.geometry}
+							material={materials.sombreroIsla4Tex}
+						/>
+						<mesh
+							name="Circle007_1"
+							geometry={nodes.Circle007_1.geometry}
+							material={materials.cintasIsla4}
+						/>
+						<mesh
+							name="Circle007_2"
+							geometry={nodes.Circle007_2.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="weed1f" position={[0, 0, 0]}>
+						<mesh
+							name="Plane025"
+							geometry={nodes.Plane025.geometry}
+							material={materials.weeds}
+						/>
+						<mesh
+							name="Plane025_1"
+							geometry={nodes.Plane025_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
+					<group name="weed1f001" position={[0, 0, 0]}>
+						<mesh
+							name="Plane027"
+							geometry={nodes.Plane027.geometry}
+							material={materials.weeds}
+						/>
+						<mesh
+							name="Plane027_1"
+							geometry={nodes.Plane027_1.geometry}
+							material={materials["outline.001"]}
+						/>
+					</group>
 				</group>
 				<mesh
 					name="Sphere"
@@ -633,30 +659,6 @@ export function IslasScene2(props) {
 					material={materials.fondo}
 					position={[15.126, 0.3, 0.776]}
 				/>
-				<group name="weed1f" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane025"
-						geometry={nodes.Plane025.geometry}
-						material={materials.weeds}
-					/>
-					<mesh
-						name="Plane025_1"
-						geometry={nodes.Plane025_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
-				<group name="weed1f001" position={[15.126, 0.3, 0.776]}>
-					<mesh
-						name="Plane027"
-						geometry={nodes.Plane027.geometry}
-						material={materials.weeds}
-					/>
-					<mesh
-						name="Plane027_1"
-						geometry={nodes.Plane027_1.geometry}
-						material={materials["outline.001"]}
-					/>
-				</group>
 			</group>
 		</group>
 	);

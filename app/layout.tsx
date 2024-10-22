@@ -25,7 +25,7 @@ export default function RootLayout({
 			signUpForceRedirectUrl="/search"
 		>
 			<html lang="en">
-				<body className={inter.className}>
+				<body className={`${inter.className} overflow-x-hidden`}>
 					<ToastProvider />
 					{children}
 				</body>

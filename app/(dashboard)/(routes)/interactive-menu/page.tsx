@@ -3,7 +3,7 @@ import React from "react";
 
 const InteractiveMenuPage = () => {
 	return (
-		<div>
+		<div className="w-full h-full">
 			<InteractiveMenu />
 		</div>
 	);

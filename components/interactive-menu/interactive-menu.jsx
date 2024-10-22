@@ -68,7 +68,7 @@ export const InteractiveMenu = () => {
 	}, [targetScreen]);
 
 	return (
-		<section className="w-full h-screen bg-slate-900">
+		<section className="w-full h-full bg-slate-900">
 			<UI
 				currentScreen={currentScreen}
 				onChangeScreen={setTargetScreen}
