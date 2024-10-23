@@ -36,7 +36,7 @@ export const Experience = () => {
 
 function Stars(props) {
 	const ref = useRef();
-	const colors = ["#00bfff", "#ffcc00", "#a64dff"];
+	const colors = ["#023e8a", "#ffbf00", "#ffffff"];
 	const [sphere] = useState(() =>
 		random.inSphere(new Float32Array(15000), { radius: 90 })
 	);
@@ -69,10 +69,10 @@ function Stars(props) {
 				<PointMaterial
 					transparent
 					vertexColors
-					size={0.5}
+					size={0.3}
 					sizeAttenuation={true}
 					depthWrite={false}
-					opacity={0.9}
+					opacity={1.8}
 					// blending={AdditiveBlending} // Usar mezcla aditiva
 				/>
 			</Points>
