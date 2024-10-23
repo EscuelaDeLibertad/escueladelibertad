@@ -13,6 +13,12 @@ export function IslasScene2(props) {
 	const isla2Ref = useRef();
 	const isla3Ref = useRef();
 	const isla4Ref = useRef();
+
+	const planetaFinalIsla1Ref = useRef();
+	const planetaFinalIsla2Ref = useRef();
+	const planetaFinalIsla3Ref = useRef();
+	const planetaFinalIsla4Ref = useRef();
+
 	const { nodes, materials } = useGLTF(
 		"/assets/models/Scene2/escenaDePrueba2.gltf"
 	);
@@ -48,6 +54,13 @@ export function IslasScene2(props) {
 			isla2Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla3Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla4Ref.current.rotation.y = mousePosition.x * rotationSpeed;
+		}
+
+		if (planetaFinalIsla1Ref.current) {
+			planetaFinalIsla1Ref.current.rotation.y += 0.0007;
+			planetaFinalIsla2Ref.current.rotation.y += 0.0007;
+			planetaFinalIsla3Ref.current.rotation.y += 0.0007;
+			planetaFinalIsla4Ref.current.rotation.y += 0.0007;
 		}
 	});
 
@@ -115,7 +128,7 @@ export function IslasScene2(props) {
 						/>
 					</group>
 				</group>
-				<group position={[-14.986, 0.151, 0.734]}>
+				<group ref={planetaFinalIsla1Ref} position={[-14.986, 0.151, 0.734]}>
 					<mesh
 						name="planetaFinalIsla1"
 						geometry={nodes.planetaFinalIsla1.geometry}
@@ -240,12 +253,14 @@ export function IslasScene2(props) {
 					</group>
 				</group>
 
-				<mesh
-					name="planetIsla2"
-					geometry={nodes.planetIsla2.geometry}
-					material={materials.planetIsla2}
-					position={[-5.075, 0.108, 0.734]}
-				/>
+				<group ref={planetaFinalIsla2Ref} position={[-5.075, 0.108, 0.734]}>
+					<mesh
+						name="planetIsla2"
+						geometry={nodes.planetIsla2.geometry}
+						material={materials.planetIsla2}
+						position={[0, 0, 0]}
+					/>
+				</group>
 
 				<group ref={isla3Ref} position={[5.886, 0.126, 0.8]}>
 					<mesh
@@ -376,12 +391,14 @@ export function IslasScene2(props) {
 					/>
 				</group>
 
-				<mesh
-					name="planetaIsla3"
-					geometry={nodes.planetaIsla3.geometry}
-					material={materials.planetIsla3}
-					position={[5.886, 0.126, 0.8]}
-				/>
+				<group ref={planetaFinalIsla3Ref} position={[5.886, 0.126, 0.8]}>
+					<mesh
+						name="planetaIsla3"
+						geometry={nodes.planetaIsla3.geometry}
+						material={materials.planetIsla3}
+						position={[0, 0, 0]}
+					/>
+				</group>
 
 				<group ref={isla4Ref} position={[15.126, 0.3, 0.776]}>
 					<mesh
@@ -655,12 +672,14 @@ export function IslasScene2(props) {
 						/>
 					</group>
 				</group>
-				<mesh
-					name="Sphere"
-					geometry={nodes.Sphere.geometry}
-					material={materials.fondo}
-					position={[15.126, 0.3, 0.776]}
-				/>
+				<group ref={planetaFinalIsla4Ref} position={[15.126, 0.3, 0.776]}>
+					<mesh
+						name="Sphere"
+						geometry={nodes.Sphere.geometry}
+						material={materials.fondo}
+						position={[0, 0, 0]}
+					/>
+				</group>
 			</group>
 		</group>
 	);

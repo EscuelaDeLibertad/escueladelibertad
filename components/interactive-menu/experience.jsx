@@ -4,9 +4,10 @@ import React, { useRef, useState } from "react";
 import { editable as e } from "@theatre/r3f";
 import { IslasScene2 } from "./IslasScene2";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { BackSide, TextureLoader } from "three";
+import { BackSide, TextureLoader, AdditiveBlending } from "three";
 import { PointMaterial, Points } from "@react-three/drei";
 import * as random from "maath/random";
+import { THREE } from "three";
 
 export const Experience = () => {
 	// Cargar la textura de la imagen
@@ -35,28 +36,44 @@ export const Experience = () => {
 
 function Stars(props) {
 	const ref = useRef();
+	const colors = ["#00bfff", "#ffcc00", "#a64dff"];
 	const [sphere] = useState(() =>
 		random.inSphere(new Float32Array(15000), { radius: 90 })
 	);
+	const [colorArray] = useState(() => {
+		const colorArray = new Float32Array(sphere.length);
+		for (let i = 0; i < sphere.length; i += 3) {
+			const color = colors[Math.floor(Math.random() * colors.length)];
+			colorArray[i] = parseInt(color.slice(1, 3), 16) / 255;
+			colorArray[i + 1] = parseInt(color.slice(3, 5), 16) / 255;
+			colorArray[i + 2] = parseInt(color.slice(5, 7), 16) / 255;
+		}
+		return colorArray;
+	});
+
 	useFrame((state, delta) => {
 		ref.current.rotation.x -= delta / 300;
 		ref.current.rotation.y -= delta / 300;
 	});
+
 	return (
 		<group rotation={[0, 0, Math.PI / 4]}>
 			<Points
 				ref={ref}
 				positions={sphere}
+				colors={colorArray}
 				stride={3}
 				frustumCulled={false}
 				{...props}
 			>
 				<PointMaterial
 					transparent
-					color="#ffa0e0"
-					size={0.4}
+					vertexColors
+					size={0.5}
 					sizeAttenuation={true}
 					depthWrite={false}
+					opacity={0.9}
+					// blending={AdditiveBlending} // Usar mezcla aditiva
 				/>
 			</Points>
 		</group>
