@@ -115,12 +115,14 @@ export function IslasScene2(props) {
 						/>
 					</group>
 				</group>
-				<mesh
-					name="planetaFinalIsla1"
-					geometry={nodes.planetaFinalIsla1.geometry}
-					material={materials.planetaTexIsla1}
-					position={[-14.986, 0.151, 0.734]}
-				/>
+				<group position={[-14.986, 0.151, 0.734]}>
+					<mesh
+						name="planetaFinalIsla1"
+						geometry={nodes.planetaFinalIsla1.geometry}
+						material={materials.planetaTexIsla1}
+						position={[0, 0, 0]}
+					/>
+				</group>
 				<group ref={isla2Ref} position={[-5.075, 0.108, 0.778]}>
 					<mesh
 						name="accesoriosIsla2"
