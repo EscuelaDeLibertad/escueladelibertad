@@ -15,6 +15,7 @@ import { editable as e } from "@theatre/r3f";
 // import projectState from "../assets/InteractiveMenu.json";
 // import projectState from "../assets/InteractiveMenu2.json";
 import projectState from "./assets/InteractiveMenu3.json";
+import { EmissiveProvider } from "./EmissiveContext";
 
 // studio.initialize();
 // studio.extend(r3fExtension);
@@ -68,44 +69,46 @@ export const InteractiveMenu = () => {
 	}, [targetScreen]);
 
 	return (
-		<section className="w-full h-full bg-gradient-to-t from-[#09143c] to-gray-900">
-			<UI
-				currentScreen={currentScreen}
-				onChangeScreen={setTargetScreen}
-				isAnimating={currentScreen !== targetScreen}
-			/>
-			<Canvas
-				camera={{
-					position: [0, 0, 50],
-					fov: 30,
-					near: 1,
-					far: 1000,
-				}}
-				gl={{
-					preserveDrawingBuffer: true,
-				}}
-			>
-				<SheetProvider sheet={mainSheet}>
-					<PerspectiveCamera
-						position={[0, 0, 50]}
-						fov={30}
-						near={1}
-						far={1000}
-						makeDefault
-						theatreKey="Camera"
-						lookAt={cameraTagetRef}
-					/>
-					<e.mesh
-						theatreKey="Camera Target"
-						visible="editor"
-						ref={cameraTagetRef}
-					>
-						<octahedronGeometry args={[0.1, 0]} />
-						<meshPhongMaterial color="yellow" />
-					</e.mesh>
-					<Experience />
-				</SheetProvider>
-			</Canvas>
-		</section>
+		<EmissiveProvider>
+			<section className="w-full h-full bg-gradient-to-t from-[#09143c] to-gray-900">
+				<UI
+					currentScreen={currentScreen}
+					onChangeScreen={setTargetScreen}
+					isAnimating={currentScreen !== targetScreen}
+				/>
+				<Canvas
+					camera={{
+						position: [0, 0, 50],
+						fov: 30,
+						near: 1,
+						far: 1000,
+					}}
+					gl={{
+						preserveDrawingBuffer: true,
+					}}
+				>
+					<SheetProvider sheet={mainSheet}>
+						<PerspectiveCamera
+							position={[0, 0, 50]}
+							fov={30}
+							near={1}
+							far={1000}
+							makeDefault
+							theatreKey="Camera"
+							lookAt={cameraTagetRef}
+						/>
+						<e.mesh
+							theatreKey="Camera Target"
+							visible="editor"
+							ref={cameraTagetRef}
+						>
+							<octahedronGeometry args={[0.1, 0]} />
+							<meshPhongMaterial color="yellow" />
+						</e.mesh>
+						<Experience />
+					</SheetProvider>
+				</Canvas>
+			</section>
+		</EmissiveProvider>
 	);
 };

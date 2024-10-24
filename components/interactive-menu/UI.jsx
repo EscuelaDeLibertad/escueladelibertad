@@ -1,8 +1,118 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { gsap } from "gsap";
+import { useEffect, useRef, useState } from "react";
+import { useEmissive } from "./EmissiveContext";
 
 export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 	const router = useRouter();
+	const isla1Button = useRef();
+	const isla2Button = useRef();
+	const isla3Button = useRef();
+	const isla4Button = useRef();
+	const [activeButton, setActiveButton] = useState(); // Estado para controlar el botón activo
+	const [timelines, setTimelines] = useState({}); // Estado para almacenar timelines
+
+	const { setEmissiveIntensity, setActiveIsland } = useEmissive();
+
+	const handleButtonClick = (buttonKey) => {
+		onClickButton(buttonKey);
+		// Cambia la intensidad emisiva y la isla activa según el botón
+		switch (buttonKey) {
+			case "isla1":
+				setEmissiveIntensity(1.5);
+				setActiveIsland("isla1");
+				break;
+			case "isla2":
+				setEmissiveIntensity(1.5);
+				setActiveIsland("isla2");
+				break;
+			case "isla3":
+				setEmissiveIntensity(1.5);
+				setActiveIsland("isla3");
+				break;
+			case "isla4":
+				setEmissiveIntensity(1.5);
+				setActiveIsland("isla4");
+				break;
+			default:
+				setEmissiveIntensity(0.5);
+				setActiveIsland(null);
+		}
+	};
+
+	useEffect(() => {
+		// Inicializa los timelines para cada botón
+		setTimelines({
+			isla1: gsap.timeline({ paused: true }).fromTo(
+				isla1Button.current,
+				{
+					opacity: 0, // Estado inicial
+					y: 0, // Estado inicial
+				},
+				{
+					opacity: 1,
+					y: 44,
+					duration: 0.5,
+					ease: "power2.inOut",
+					zIndex: 0,
+				}
+			),
+			isla2: gsap.timeline({ paused: true }).fromTo(
+				isla2Button.current,
+				{
+					opacity: 0, // Estado inicial
+					y: 0, // Estado inicial
+				},
+				{
+					opacity: 1,
+					y: 44,
+					duration: 0.5,
+					ease: "power2.inOut",
+					zIndex: 0,
+				}
+			),
+			isla3: gsap.timeline({ paused: true }).fromTo(
+				isla3Button.current,
+				{
+					opacity: 0, // Estado inicial
+					y: 0, // Estado inicial
+				},
+				{
+					opacity: 1,
+					y: 44,
+					duration: 0.5,
+					ease: "power2.inOut",
+					zIndex: 0,
+				}
+			),
+			isla4: gsap.timeline({ paused: true }).fromTo(
+				isla4Button.current,
+				{
+					opacity: 0, // Estado inicial
+					y: 0, // Estado inicial
+				},
+				{
+					opacity: 1,
+					y: 44,
+					duration: 0.5,
+					ease: "power2.inOut",
+					zIndex: 0,
+				}
+			),
+		});
+	}, []);
+
+	const onClickButton = (buttonKey) => {
+		if (activeButton && activeButton !== buttonKey) {
+			timelines[activeButton].reverse();
+		}
+		setActiveButton(buttonKey);
+		timelines[buttonKey].reversed()
+			? timelines[buttonKey].play()
+			: timelines[buttonKey].reverse();
+	};
+
 	return (
 		<>
 			<main
@@ -29,31 +139,67 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 				}`}
 				>
 					<div className="mt-60 flex flex-col gap-4 items-center justify-center mb-4">
-						<div className="flex gap-6">
-							<button
-								onClick={() => onChangeScreen("Isla1")}
-								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
-							>
-								El Río de la Vida
-							</button>
-							<button
-								onClick={() => onChangeScreen("Isla2")}
-								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
-							>
-								Sabiduría Zen
-							</button>
-							<button
-								onClick={() => onChangeScreen("Isla3")}
-								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
-							>
-								Tao de la Meditación I
-							</button>
-							<button
-								onClick={() => onChangeScreen("Isla4")}
-								className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
-							>
-								Alkimia Interna
-							</button>
+						<div className="flex gap-6 mb-10">
+							<div className="relative flex flex-col items-center justify-center">
+								<button
+									onClick={() => handleButtonClick("isla1")}
+									className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
+								>
+									El Río de la Vida
+								</button>
+								<button
+									onClick={() => onChangeScreen("Isla1")}
+									className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
+									ref={isla1Button}
+								>
+									Ir
+								</button>
+							</div>
+							<div className="relative flex flex-col items-center justify-center">
+								<button
+									onClick={() => handleButtonClick("isla2")}
+									className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
+								>
+									Sabiduría Zen
+								</button>
+								<button
+									onClick={() => onChangeScreen("Isla2")}
+									className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
+									ref={isla2Button}
+								>
+									Ir
+								</button>
+							</div>
+							<div className="relative flex flex-col items-center justify-center">
+								<button
+									onClick={() => handleButtonClick("isla3")}
+									className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
+								>
+									Tao de la Meditación I
+								</button>
+								<button
+									onClick={() => onChangeScreen("Isla3")}
+									className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
+									ref={isla3Button}
+								>
+									Ir
+								</button>
+							</div>
+							<div className="relative flex flex-col items-center justify-center">
+								<button
+									onClick={() => handleButtonClick("isla4")}
+									className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium"
+								>
+									Alkimia Interna
+								</button>
+								<button
+									onClick={() => onChangeScreen("Isla4")}
+									className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
+									ref={isla4Button}
+								>
+									Ir
+								</button>
+							</div>
 						</div>
 						<h1 className="text-4xl text-white opacity-90">
 							Bienvenidos a Escuela de Libertad

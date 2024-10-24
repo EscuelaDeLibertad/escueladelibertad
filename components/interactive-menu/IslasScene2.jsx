@@ -6,6 +6,8 @@ Command: npx gltfjsx@6.2.16 public/assets/models/Scene2/escenaDePrueba2.gltf -o 
 import React, { useRef, useState, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { DoubleSide } from "three";
+import { useEmissive } from "./EmissiveContext";
 
 export function IslasScene2(props) {
 	const group = useRef();
@@ -18,6 +20,8 @@ export function IslasScene2(props) {
 	const planetaFinalIsla2Ref = useRef();
 	const planetaFinalIsla3Ref = useRef();
 	const planetaFinalIsla4Ref = useRef();
+
+	const { emissiveIntensity, activeIsland } = useEmissive();
 
 	const { nodes, materials } = useGLTF(
 		"/assets/models/Scene2/escenaDePrueba2.gltf"
@@ -132,9 +136,18 @@ export function IslasScene2(props) {
 					<mesh
 						name="planetaFinalIsla1"
 						geometry={nodes.planetaFinalIsla1.geometry}
-						material={materials.planetaTexIsla1}
 						position={[0, 0, 0]}
-					/>
+					>
+						<meshStandardMaterial
+							attach="material"
+							{...materials.planetaTexIsla1.clone()}
+							emissive="white"
+							emissiveIntensity={
+								activeIsland === "isla1" ? emissiveIntensity : 0
+							} // Solo ilumina si es la isla activa
+							side={DoubleSide}
+						/>
+					</mesh>
 				</group>
 				<group ref={isla2Ref} position={[-5.075, 0.108, 0.778]}>
 					<mesh
@@ -257,9 +270,18 @@ export function IslasScene2(props) {
 					<mesh
 						name="planetIsla2"
 						geometry={nodes.planetIsla2.geometry}
-						material={materials.planetIsla2}
 						position={[0, 0, 0]}
-					/>
+					>
+						<meshStandardMaterial
+							attach="material"
+							{...materials.planetIsla2.clone()}
+							emissive="white"
+							emissiveIntensity={
+								activeIsland === "isla2" ? emissiveIntensity : 0
+							}
+							side={DoubleSide}
+						/>
+					</mesh>
 				</group>
 
 				<group ref={isla3Ref} position={[5.886, 0.126, 0.8]}>
@@ -395,9 +417,18 @@ export function IslasScene2(props) {
 					<mesh
 						name="planetaIsla3"
 						geometry={nodes.planetaIsla3.geometry}
-						material={materials.planetIsla3}
 						position={[0, 0, 0]}
-					/>
+					>
+						<meshStandardMaterial
+							attach="material"
+							{...materials.planetIsla3.clone()}
+							emissive="white"
+							emissiveIntensity={
+								activeIsland === "isla3" ? emissiveIntensity : 0
+							}
+							side={DoubleSide}
+						/>
+					</mesh>
 				</group>
 
 				<group ref={isla4Ref} position={[15.126, 0.3, 0.776]}>
@@ -676,9 +707,18 @@ export function IslasScene2(props) {
 					<mesh
 						name="Sphere"
 						geometry={nodes.Sphere.geometry}
-						material={materials.fondo}
 						position={[0, 0, 0]}
-					/>
+					>
+						<meshStandardMaterial
+							attach="material"
+							{...materials.fondo.clone()}
+							emissive="white"
+							emissiveIntensity={
+								activeIsland === "isla4" ? emissiveIntensity : 0
+							}
+							side={DoubleSide}
+						/>
+					</mesh>
 				</group>
 			</group>
 		</group>

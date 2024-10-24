@@ -19,16 +19,6 @@ export const Experience = () => {
 			<e.group theatreKey="IslasScene">
 				<IslasScene2 />
 			</e.group>
-			{/* Crear un plano grande detrás de la escena */}
-			{/* <mesh position={[0, 0, 20]}>
-				<sphereGeometry args={[130, 130]} />
-				<meshBasicMaterial
-					map={texture}
-					transparent={true}
-					opacity={0.5}
-					side={BackSide}
-				/>
-			</mesh> */}
 			<Stars />
 		</>
 	);
