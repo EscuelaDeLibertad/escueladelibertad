@@ -8,8 +8,15 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { DoubleSide } from "three";
 import { useEmissive } from "./EmissiveContext";
+import { useAuth } from "@clerk/nextjs";
 
 export function IslasScene2(props) {
+	const [haCompradoCurso1, setHaCompradoCurso1] = useState(false);
+	const [haCompradoCurso2, setHaCompradoCurso2] = useState(false);
+	const [haCompradoCurso3, setHaCompradoCurso3] = useState(false);
+	const [haCompradoCurso4, setHaCompradoCurso4] = useState(false);
+	const { userId } = useAuth();
+
 	const group = useRef();
 	const isla1Ref = useRef();
 	const isla2Ref = useRef();
@@ -27,6 +34,45 @@ export function IslasScene2(props) {
 		"/assets/models/Scene2/escenaDePrueba2.gltf"
 	);
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+	useEffect(() => {
+		const verifyPurchases = async () => {
+			if (!userId) return;
+
+			const courseIds = [
+				"881228e9-889b-4633-bdcb-95980ad46fc3",
+				"24885a44-42c3-4b0f-9d77-32db0ca81b55",
+				"1f984877-8128-4156-b0b5-be8a3dde7221",
+				"2a88e27f-0168-453c-9497-f5f6b746b7a3",
+			];
+
+			try {
+				const response = await fetch("/api/purchase", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ userId, courseIds }),
+				});
+
+				if (!response.ok) {
+					throw new Error("Error al verificar las compras");
+				}
+
+				const data = await response.json();
+				setHaCompradoCurso1(data[courseIds[0]]);
+				setHaCompradoCurso2(data[courseIds[1]]);
+				setHaCompradoCurso3(data[courseIds[2]]);
+				setHaCompradoCurso4(data[courseIds[3]]);
+
+				console.log("Estado de compras:", data);
+			} catch (error) {
+				console.error("Error al verificar las compras:", error);
+			}
+		};
+
+		verifyPurchases();
+	}, [userId]);
 
 	useEffect(() => {
 		const updateMousePosition = (e) => {
@@ -146,6 +192,7 @@ export function IslasScene2(props) {
 								activeIsland === "isla1" ? emissiveIntensity : 0
 							} // Solo ilumina si es la isla activa
 							side={DoubleSide}
+							wireframe={!haCompradoCurso1}
 						/>
 					</mesh>
 				</group>
@@ -280,6 +327,7 @@ export function IslasScene2(props) {
 								activeIsland === "isla2" ? emissiveIntensity : 0
 							}
 							side={DoubleSide}
+							wireframe={!haCompradoCurso2}
 						/>
 					</mesh>
 				</group>
@@ -427,6 +475,7 @@ export function IslasScene2(props) {
 								activeIsland === "isla3" ? emissiveIntensity : 0
 							}
 							side={DoubleSide}
+							wireframe={!haCompradoCurso3}
 						/>
 					</mesh>
 				</group>
@@ -717,6 +766,7 @@ export function IslasScene2(props) {
 								activeIsland === "isla4" ? emissiveIntensity : 0
 							}
 							side={DoubleSide}
+							wireframe={!haCompradoCurso4}
 						/>
 					</mesh>
 				</group>

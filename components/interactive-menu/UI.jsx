@@ -10,7 +10,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 	const isla2Button = useRef();
 	const isla3Button = useRef();
 	const isla4Button = useRef();
-	const [activeButton, setActiveButton] = useState(); // Estado para controlar el botón activo
+	const [activeButton, setActiveButton] = useState(null); // Estado para controlar el botón activo
 	const [timelines, setTimelines] = useState({}); // Estado para almacenar timelines
 
 	const { setEmissiveIntensity, setActiveIsland } = useEmissive();
@@ -20,23 +20,23 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 		// Cambia la intensidad emisiva y la isla activa según el botón
 		switch (buttonKey) {
 			case "isla1":
-				setEmissiveIntensity(1.5);
+				setEmissiveIntensity(0.5);
 				setActiveIsland("isla1");
 				break;
 			case "isla2":
-				setEmissiveIntensity(1.5);
+				setEmissiveIntensity(0.5);
 				setActiveIsland("isla2");
 				break;
 			case "isla3":
-				setEmissiveIntensity(1.5);
+				setEmissiveIntensity(0.5);
 				setActiveIsland("isla3");
 				break;
 			case "isla4":
-				setEmissiveIntensity(1.5);
+				setEmissiveIntensity(0.1);
 				setActiveIsland("isla4");
 				break;
 			default:
-				setEmissiveIntensity(0.5);
+				setEmissiveIntensity(0.2);
 				setActiveIsland(null);
 		}
 	};
@@ -108,9 +108,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
 			timelines[activeButton].reverse();
 		}
 		setActiveButton(buttonKey);
-		timelines[buttonKey].reversed()
-			? timelines[buttonKey].play()
-			: timelines[buttonKey].reverse();
+		timelines[buttonKey].play();
 	};
 
 	return (
