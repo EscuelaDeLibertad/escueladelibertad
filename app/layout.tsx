@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { esES } from "@clerk/localizations";
+import "./globals.css";
 import ToastProvider from "@/components/providers/toast-provider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -25,7 +22,13 @@ export default function RootLayout({
 			signUpForceRedirectUrl="/search"
 		>
 			<html lang="en">
-				<body className={`${inter.className} overflow-x-hidden`}>
+				<head>
+					<link rel="stylesheet" href="https://use.typekit.net/ysr5dfe.css" />
+				</head>
+				<body
+					className="overflow-x-hidden"
+					style={{ fontFamily: '"p22-mackinac-pro", serif' }}
+				>
 					<ToastProvider />
 					{children}
 				</body>

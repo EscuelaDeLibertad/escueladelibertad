@@ -65,7 +65,7 @@ export function IslasScene2(props) {
 				setHaCompradoCurso3(data[courseIds[2]]);
 				setHaCompradoCurso4(data[courseIds[3]]);
 
-				console.log("Estado de compras:", data);
+				// console.log("Estado de compras:", data);
 			} catch (error) {
 				console.error("Error al verificar las compras:", error);
 			}
@@ -96,10 +96,9 @@ export function IslasScene2(props) {
 			isla3Ref.current ||
 			isla4Ref.current
 		) {
-			// Ajusta este valor para controlar la sensibilidad de la rotación
+			// Sensibilidad de la rotación
 			const rotationSpeed = 3.5;
 
-			// Rotamos en el eje Y basándonos en la posición X del ratón
 			isla1Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla2Ref.current.rotation.y = mousePosition.x * rotationSpeed;
 			isla3Ref.current.rotation.y = mousePosition.x * rotationSpeed;
@@ -190,7 +189,7 @@ export function IslasScene2(props) {
 							emissive="white"
 							emissiveIntensity={
 								activeIsland === "isla1" ? emissiveIntensity : 0
-							} // Solo ilumina si es la isla activa
+							}
 							side={DoubleSide}
 							wireframe={!haCompradoCurso1}
 						/>

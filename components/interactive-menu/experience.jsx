@@ -7,12 +7,8 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { BackSide, TextureLoader, AdditiveBlending } from "three";
 import { PointMaterial, Points } from "@react-three/drei";
 import * as random from "maath/random";
-import { THREE } from "three";
 
 export const Experience = () => {
-	// Cargar la textura de la imagen
-	const texture = useLoader(TextureLoader, "/assets/images/background4.png");
-
 	return (
 		<>
 			<ambientLight intensity={0.5} />
@@ -53,7 +49,7 @@ function Stars(props) {
 				positions={sphere}
 				colors={colorArray}
 				stride={3}
-				frustumCulled={false}
+				frustumCulled={true}
 				{...props}
 			>
 				<PointMaterial
@@ -62,8 +58,7 @@ function Stars(props) {
 					size={0.3}
 					sizeAttenuation={true}
 					depthWrite={false}
-					opacity={1.8}
-					// blending={AdditiveBlending} // Usar mezcla aditiva
+					opacity={2}
 				/>
 			</Points>
 		</group>
