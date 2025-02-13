@@ -70,7 +70,10 @@ const config: Config = {
     				border: 'hsl(var(--sidebar-border))',
     				ring: 'hsl(var(--sidebar-ring))'
     			}
-    		}
+    		},
+			fontFamily: {
+				sans: ['Montserrat', 'sans-serif'],
+			}
     	}
     },
 	plugins: [require("tailwindcss-animate")],
