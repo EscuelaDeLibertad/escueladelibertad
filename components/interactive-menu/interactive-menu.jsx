@@ -7,8 +7,8 @@ import { Experience } from "./experience";
 import { getProject } from "@theatre/core";
 import { PerspectiveCamera, SheetProvider } from "@theatre/r3f";
 
-import r3fExtension from "@theatre/r3f/dist/extension";
-import studio from "@theatre/studio";
+// import r3fExtension from "@theatre/r3f/dist/extension";
+// import studio from "@theatre/studio";
 
 import { editable as e } from "@theatre/r3f";
 
@@ -17,9 +17,9 @@ import { editable as e } from "@theatre/r3f";
 import projectState from "./assets/InteractiveMenu3.json";
 import { EmissiveProvider } from "./EmissiveContext";
 
-studio.initialize();
-studio.extend(r3fExtension);
-studio.ui.hide();
+// studio.initialize();
+// studio.extend(r3fExtension);
+// studio.ui.hide();
 
 const project = getProject("InteractiveMenu", {
   state: projectState,

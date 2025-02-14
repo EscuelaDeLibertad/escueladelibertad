@@ -7,7 +7,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { BackSide, TextureLoader, AdditiveBlending } from "three";
 import { OrbitControls, PointMaterial, Points } from "@react-three/drei";
 import * as random from "maath/random";
-import { IslasScene3 } from "./IslasScene3";
+// import { IslasScene3 } from "./IslasScene3";
 
 export const Experience = () => {
   return (
