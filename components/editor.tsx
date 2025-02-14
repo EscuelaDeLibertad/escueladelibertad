@@ -36,14 +36,10 @@ export const Editor = ({ onChange, value }: EditorProps) => {
     ["clean"], // remove formatting button
   ];
 
-  const module = {
-    toolbar: toolbarOptions,
-  };
-
   return (
     <div className="bg-white">
       <ReactQuill
-        modules={module}
+        modules={toolbarOptions}
         theme="snow"
         value={value}
         onChange={onChange}
