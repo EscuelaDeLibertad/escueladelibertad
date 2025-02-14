@@ -29,7 +29,7 @@ export const CoursesList = ({ items }: CoursesListProps) => {
 				))}
 			</div>
 			{items.length === 0 && (
-				<div className="text-center text-sm text-muted-foreground mt-10">
+				<div className="text-center text-sm text-muted-foreground mt-10 text-white">
 					No se encontraron cursos
 				</div>
 			)}

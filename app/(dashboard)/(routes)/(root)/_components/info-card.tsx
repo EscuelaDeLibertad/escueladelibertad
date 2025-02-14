@@ -18,8 +18,8 @@ const InfoCard = ({
 		<div className="border rounded-md flex items-center gap-x-2 p-3">
 			<IconBadge variant={variant} icon={Icon} />
 			<div>
-				<p className="font-medium">{label}</p>
-				<p className="text-gray-500 text-sm">
+				<p className="font-medium text-slate-700">{label}</p>
+				<p className="text-slate-500 text-sm">
 					{numberOfItems} {numberOfItems === 1 ? "Curso" : "Cursos"}
 				</p>
 			</div>

@@ -6,7 +6,6 @@ const Sidebar = () => {
 		<div className="h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm">
 			<div className="p-[10px] w-full flex items-center gap-[8px]">
 				<Logo />
-				<p className="text-xl font-bold text-blue-800">E-Learning</p>
 			</div>
 			<div className="flex flex-col w-full">
 				<SidebarRoutes />
