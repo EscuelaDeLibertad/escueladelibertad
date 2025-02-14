@@ -16,9 +16,9 @@ const guestRoutes = [
     href: "/search",
   },
   // {
-  // 	icon: Earth,
-  // 	label: "Menu Interactivo",
-  // 	href: "/interactive-menu",
+  //   icon: Earth,
+  //   label: "Menu Interactivo",
+  //   href: "/interactive-menu",
   // },
 ];
 
