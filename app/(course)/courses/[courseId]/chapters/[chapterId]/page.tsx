@@ -89,7 +89,7 @@ const ChapterIdPage = async ({
           </div>
           <Separator />
           <div>
-            {!infoLocked ? (
+            {!isLocked ? (
               <Preview value={chapter.description!} />
             ) : (
               <p>
