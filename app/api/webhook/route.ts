@@ -33,10 +33,10 @@ export async function POST(req: Request) {
 		}
 		await db.purchase.create({
 			data: {
-				courseId: courseId,
-				userId: userId,
-			},
-		});
+				userId,
+				courseId,
+			}
+		})
 	} else {
 		return new NextResponse(
 			`Webhook Error: Unhandled event type ${event.type}`,

@@ -75,6 +75,12 @@ export async function POST(
 			});
 		}
 
+		const customerExists = await stripe.customers.retrieve(stripeCostumer.stripeCustomerId);
+	  
+		  if (!customerExists) {
+			return new NextResponse("Cliente no encontrado en Stripe", { status: 400 });
+		  }
+
 		const session = await stripe.checkout.sessions.create({
 			customer: stripeCostumer.stripeCustomerId,
 			line_items,
