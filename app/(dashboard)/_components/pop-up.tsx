@@ -31,13 +31,13 @@ const PopUp = ({
             onChange={(e) => setAccepted(e.target.checked)}
           />
           <label htmlFor="accept" className="ml-2 text-sm">
-            He leído y acepto los{" "}
+            He leído y acepto las{" "}
             <Link
               href="/terminos-condiciones"
               target="_blank"
               className="underline text-blue-500"
             >
-              términos y condiciones
+              políticas, términos y condiciones.
             </Link>
             .
           </label>
