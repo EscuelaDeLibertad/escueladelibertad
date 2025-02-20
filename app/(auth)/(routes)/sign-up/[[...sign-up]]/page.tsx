@@ -8,7 +8,7 @@ export default function Page() {
         <aside className="w-full relative lg:order-last lg:col-span-5 lg:h-full xl:col-span-6 overflow-hidden">
           <Image
             alt=""
-            src="/assets/images/bglogo2.png"
+            src="/assets/images/bglogo.png"
             className="absolute inset-0 h-full w-full object-cover"
             width={1440}
             height={1440}
@@ -19,7 +19,7 @@ export default function Page() {
           <div className="max-w-xl lg:max-w-3xl">
             <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl text-center">
               Bienvenidos a <br />
-              Escuela de Libertad
+              Escuela De Libertad
             </h1>
 
             {/* <p className="mt-4 leading-relaxed text-gray-500">
