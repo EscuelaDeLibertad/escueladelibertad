@@ -119,7 +119,7 @@ const Terms = () => {
             <li>Oponerte al tratamiento de tus datos.</li>
           </ul>
           Para ejercer cualquiera de estos derechos, puedes enviarnos un correo
-          a teconchen@gmail.com con el asunto "Protección de Datos".
+          a teconchen@gmail.com con el asunto &quot;Protección de Datos&quot;.
         </div>
         <p className="font-semibold mb-2">8. Conservación de los datos</p>
         <div className="mb-6">
