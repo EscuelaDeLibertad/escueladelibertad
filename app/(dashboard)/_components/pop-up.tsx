@@ -42,13 +42,15 @@ const PopUp = ({
             .
           </label>
         </div>
-        <button
-          className="bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded"
-          onClick={handleAccept}
-          disabled={!accepted}
-        >
-          Aceptar y continuar
-        </button>
+        <div className="flex items-center justify-center">
+          <button
+            className="bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded"
+            onClick={handleAccept}
+            disabled={!accepted}
+          >
+            Aceptar y continuar
+          </button>
+        </div>
       </div>
     </div>
   );
