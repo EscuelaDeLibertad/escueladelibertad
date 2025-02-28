@@ -8,7 +8,7 @@ export default function Page() {
         <aside className="w-full relative lg:order-last lg:col-span-5 lg:h-full xl:col-span-6 overflow-hidden">
           <Image
             alt=""
-            src="/assets/images/bglogo.png"
+            src="/assets/images/bglogo3.png"
             className="absolute inset-0 h-full w-full object-cover"
             width={1440}
             height={1440}

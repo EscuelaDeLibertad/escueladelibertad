@@ -113,7 +113,12 @@ const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
           />
           <div className="text-xs text-muted-foreground mt-4">
             Agrega archivos para tus estudiantes como: videos, pdfs, imágenes,
-            etc. <b>El peso máximo por archivo es de 4MB</b>.
+            etc.{" "}
+            <b>
+              El peso máximo por archivo es de Imágenes(32MB), Videos y
+              Audio(1GB) y PDFs(128MB)
+            </b>
+            .
           </div>
         </div>
       )}
