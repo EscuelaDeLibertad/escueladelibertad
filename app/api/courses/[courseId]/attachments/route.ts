@@ -10,7 +10,6 @@ export async function POST(
 	try {
 		const { userId } = auth();
 		const body = await req.json();
-        console.log("Request body:", body);  // This will show the full request body
         const { url, name } = body;
 
 

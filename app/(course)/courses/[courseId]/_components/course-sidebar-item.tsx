@@ -45,8 +45,10 @@ const CourseSidebarItem = ({
       <div className="flex items-center text-left gap-x-2 py-4">
         <Icon
           size={22}
+          width={22}
+          height={22}
           className={cn(
-            "text-slate-500",
+            "text-slate-500 flex-shrink-0",
             isActive && "text-slate-700",
             isCompleted && "text-emerald-700"
           )}
