@@ -9,7 +9,10 @@ export async function POST(
 ) {
 	try {
 		const { userId } = auth();
-		const { url } = await req.json();
+		const body = await req.json();
+        console.log("Request body:", body);  // This will show the full request body
+        const { url, name } = body;
+
 
 		if (!userId || !isTeacher(userId)) {
 			return new NextResponse("No autorizado", { status: 401 });
@@ -29,7 +32,7 @@ export async function POST(
 		const attachment = await db.attachment.create({
 			data: {
 				url,
-				name: url.split("/").pop(),
+				name: name,
 				courseId: params.courseId,
 			},
 		});
