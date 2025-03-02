@@ -15,7 +15,7 @@ const CourseEnrollButton = ({ price, courseId }: CourseEnrollButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const isFull =
     courseId === "3a465407-1ec5-4d8b-9a97-cd528d105f0e" ||
-    "c20f1e2a-2d11-4122-b193-577e0f6c7c4e";
+    courseId === "c20f1e2a-2d11-4122-b193-577e0f6c7c4e";
 
   const onClick = async () => {
     try {
