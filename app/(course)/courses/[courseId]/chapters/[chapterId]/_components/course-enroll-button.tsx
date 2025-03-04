@@ -34,7 +34,7 @@ const CourseEnrollButton = ({ price, courseId }: CourseEnrollButtonProps) => {
     <>
       {isFull ? (
         <Button disabled className="w-full md:w-auto" size="sm">
-          Plazas Llenas
+          Convocatoria Cerrada
         </Button>
       ) : (
         <Button

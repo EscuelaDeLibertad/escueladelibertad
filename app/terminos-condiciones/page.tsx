@@ -7,12 +7,12 @@ import { FaArrowCircleUp } from "react-icons/fa";
 const Terms = () => {
   return (
     <div className="w-full flex items-center flex-col px-10">
-      <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-[400px] md:w-[500px] h-[200px] flex flex-col items-center justify-center">
         <Image
-          src="/assets/images/logo-politicas.png"
+          src="/assets/images/logo-politicas.webp"
           alt="Escuela De Libertad"
-          width={600}
-          height={600}
+          width={1200}
+          height={1200}
         />
       </div>
       <div className="md:w-[1000px] w-[300px]">
