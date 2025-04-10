@@ -12,7 +12,7 @@ import studio from "@theatre/studio";
 
 import { editable as e } from "@theatre/r3f";
 
-import projectState from "@/components/interactive-menu/assets/InteractiveMenu.json";
+import projectState from "./assets/InteractiveMenu.json";
 import { EmissiveProvider } from "./EmissiveContext";
 
 studio.initialize();

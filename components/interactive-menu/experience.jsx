@@ -12,9 +12,7 @@ export const Experience = () => {
   return (
     <>
       <ambientLight intensity={2.5} />
-      {/* <OrbitControls /> */}
       <e.group theatreKey="IslasScene" scale={[0.1, 0.1, 0.1]}>
-        {/* <IslasScene2 /> */}
         <DracoConstellation />
       </e.group>
       <Stars />
