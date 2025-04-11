@@ -97,7 +97,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -111,7 +111,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -125,7 +125,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -139,7 +139,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -153,7 +153,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -167,7 +167,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -181,7 +181,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: 56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -195,7 +195,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -209,7 +209,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -223,7 +223,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -237,7 +237,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -251,7 +251,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -265,7 +265,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         },
         {
           opacity: 1,
-          y: 44,
+          x: -56,
           duration: 0.5,
           ease: "power2.inOut",
           zIndex: 0,
@@ -325,211 +325,218 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
             : "opacity-0 pointer-events-none"
         }`}
         >
-          <div className="mt-60 flex flex-col gap-4 items-center justify-center mb-4 relative w-full">
-            <div className="flex gap-6 mb-10 max-w-[20%] h-full flex-wrap absolute top-0 left-10">
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla1")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  El Río de la Vida
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla1")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla1Button}
-                >
-                  Ir
-                </button>
+          <div className="flex flex-col gap-4 mb-4 relative w-full h-full">
+            <div className="flex flex-row gap-1 mt-16 w-full h-full">
+              <div className="w-full h-full flex-1">
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla1")}
+                    className="bg-[#94e9e3] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    1
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla1")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla1Button}
+                  >
+                    El Río de la Vida
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla2")}
+                    className="bg-[#ffe762] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    2
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla2")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla2Button}
+                  >
+                    Sabiduría Zen
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla3")}
+                    className="bg-[#b7f033] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    3
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla3")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla3Button}
+                  >
+                    Tao de la Meditación I
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla4")}
+                    className="bg-[#efc1b7] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    4
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla4")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla4Button}
+                  >
+                    Alkimia Interna
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla5")}
+                    className="bg-[#0073b4] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    5
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla5")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla5Button}
+                  >
+                    Reconexión Arcoírica
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla6")}
+                    className="bg-[#ff7e36] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    6
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla6")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla6Button}
+                  >
+                    La Rueda de la Vida
+                  </button>
+                </div>
+                <div className="flex flex-col items-start ml-6 relative mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla7")}
+                    className="bg-[#95bd3f] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    7
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla7")}
+                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla7Button}
+                  >
+                    Tao en la Meditación II
+                  </button>
+                </div>
               </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla2")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Sabiduría Zen
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla2")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla2Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla3")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Tao de la Meditación I
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla3")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla3Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla4")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Alkimia Interna
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla4")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla4Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla5")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Reconexión Arcoírica
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla5")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla5Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla6")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  La Rueda de la Vida
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla6")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla6Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla7")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Tao en la Meditación II
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla7")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla7Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla8")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Chikung Onírico
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla8")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla8Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla9")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Buda de la Risa
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla9")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla9Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla10")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Tao en el Amor
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla10")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla10Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla11")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Sempiterno I
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla11")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla11Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla12")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  La Puerta del Dragón
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla12")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla12Button}
-                >
-                  Ir
-                </button>
-              </div>
-              <div className="relative flex flex-col items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("isla13")}
-                  className="bg-gray-400 text-sm bg-opacity-50 p-3 rounded-full text-white font-medium mb-6"
-                >
-                  Retiros y Viajes
-                </button>
-                <button
-                  onClick={() => onChangeScreen("Isla13")}
-                  className="absolute top-0 left-[50%] translate-x-[-50%] text-sm bg-sky-800 bg-opacity-50 py-3 px-6 rounded-b-md text-white opacity-0 font-medium -z-10"
-                  ref={isla13Button}
-                >
-                  Ir
-                </button>
+              <div className="w-full flex-1">
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla8")}
+                    className="bg-[#003e61] rounded-full w-10 h-10 text-white font-bold mb-2"
+                  >
+                    8
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla8")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla8Button}
+                  >
+                    Chikung Onírico
+                  </button>
+                </div>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla9")}
+                    className="bg-[#e5c100] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    9
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla9")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla9Button}
+                  >
+                    Buda de la Risa
+                  </button>
+                </div>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla10")}
+                    className="bg-[#001b19] rounded-full w-10 h-10 text-white font-bold mb-2"
+                  >
+                    10
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla10")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla10Button}
+                  >
+                    Tao en el Amor
+                  </button>
+                </div>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla11")}
+                    className="bg-[#812f88] rounded-full w-10 h-10 text-white font-bold mb-2"
+                  >
+                    11
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla11")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla11Button}
+                  >
+                    Sempiterno I
+                  </button>
+                </div>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla12")}
+                    className="bg-[#375d87] rounded-full w-10 h-10 text-white font-bold mb-2"
+                  >
+                    12
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla12")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla12Button}
+                  >
+                    La Puerta del Dragón
+                  </button>
+                </div>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
+                  <button
+                    onClick={() => handleButtonClick("isla13")}
+                    className="bg-[#f19858] rounded-full w-10 h-10 text-black font-bold mb-2"
+                  >
+                    13
+                  </button>
+                  <button
+                    onClick={() => onChangeScreen("Isla13")}
+                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
+                    ref={isla13Button}
+                  >
+                    Retiros y Viajes
+                  </button>
+                </div>
               </div>
             </div>
-            <h1 className="text-4xl text-white opacity-90">
-              Bienvenidos a Escuela de Libertad
-            </h1>
-            <p className="text-white text-sm font-thin">
+            <div className="absolute top-0 w-full h-[100px] 2xl:h-[200px] flex items-end justify-start pl-40 2xl:pl-72 pt-28 z-[-10]">
+              <h1 className="text-4xl 2xl:text-5xl font-medium text-white opacity-40">
+                Constelación de Draco
+              </h1>
+            </div>
+
+            {/* <p className="text-white text-sm font-thin">
               lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
               quos.
-            </p>
+            </p> */}
           </div>
         </section>
       </main>
