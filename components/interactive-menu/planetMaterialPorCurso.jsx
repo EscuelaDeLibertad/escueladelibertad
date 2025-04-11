@@ -1,7 +1,7 @@
 import { DoubleSide } from "three";
 import { useEmissive } from "./EmissiveContext";
 
-const PlanetMaterialPorCurso = ({ haComprado, material, color, island }) => {
+const PlanetMaterialPorCurso = ({ haComprado, material, island }) => {
   const { emissiveIntensity, activeIsland } = useEmissive();
   return haComprado ? (
     <meshStandardMaterial

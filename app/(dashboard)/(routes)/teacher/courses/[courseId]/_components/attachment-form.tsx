@@ -3,17 +3,17 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Button } from "@/components/ui/button";
-import { File, ImageIcon, Loader2, Pencil, PlusCircle, X } from "lucide-react";
+import { File, Loader2, PlusCircle, X } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Attachment, Course } from "@prisma/client";
-import Image from "next/image";
+import { Attachment, Chapter } from "@prisma/client";
 import { FileUpload } from "@/components/file-upload";
 
 interface AttachmentFormProps {
-  initialData: Course & { attachments: Attachment[] }; //Agregamos el array de attachments desde prisma -> Base de Datos
+  initialData: Chapter & { attachments: Attachment[] }; //Agregamos el array de attachments desde prisma -> Base de Datos
   courseId: string;
+  chapterId: string;
 }
 
 const formSchema = z.object({
@@ -21,7 +21,11 @@ const formSchema = z.object({
   name: z.string().min(1),
 });
 
-const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
+const AttachmentForm = ({
+  initialData,
+  courseId,
+  chapterId,
+}: AttachmentFormProps) => {
   const router = useRouter();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -31,19 +35,29 @@ const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post(`/api/courses/${courseId}/attachments`, values);
-      toast.success("Curso actualizado correctamente");
+      console.log(
+        "Submitting to:",
+        `/api/courses/${courseId}/chapters/${chapterId}/attachments`
+      );
+      console.log("Values:", values);
+      await axios.post(
+        `/api/courses/${courseId}/chapters/${chapterId}/attachments`,
+        values
+      );
+      toast.success("Capítulo actualizado correctamente");
       toggleEdit();
       router.refresh();
     } catch {
-      toast.error("Error al actualizar el título del curso");
+      toast.error("Error al actualizar el capítulo");
     }
   };
 
   const onDelete = async (id: string) => {
     try {
       setDeletingId(id);
-      await axios.delete(`/api/courses/${courseId}/attachments/${id}`);
+      await axios.delete(
+        `/api/courses/${courseId}/chapters/${chapterId}/attachments/${id}`
+      );
       toast.success("Archivo eliminado correctamente");
       router.refresh();
     } catch {
@@ -56,7 +70,7 @@ const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Recursos y Adjuntos del Curso
+        Recursos y Adjuntos del Capítulo
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing && <>Cancelar</>}
           {!isEditing && (
@@ -71,7 +85,7 @@ const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
         <>
           {initialData.attachments.length === 0 && (
             <p className="text-sm text-slate-500 mt-2 italic">
-              No hay archivos adjuntos para este curso
+              No hay archivos adjuntos para este capítulo
             </p>
           )}
           {initialData.attachments.length > 0 && (
@@ -105,7 +119,7 @@ const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
       {isEditing && (
         <div>
           <FileUpload
-            endpoint="courseAttachment"
+            endpoint="chapterAttachment"
             onChange={(url, name) => {
               if (url) {
                 onSubmit({ url: url, name: name });

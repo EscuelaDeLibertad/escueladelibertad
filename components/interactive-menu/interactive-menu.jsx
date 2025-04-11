@@ -14,6 +14,7 @@ import { editable as e } from "@theatre/r3f";
 
 import projectState from "./assets/InteractiveMenu.json";
 import { EmissiveProvider } from "./EmissiveContext";
+import { Loader } from "@react-three/drei";
 
 studio.initialize();
 studio.extend(r3fExtension);
@@ -58,9 +59,14 @@ const transitions = {
 export const InteractiveMenu = () => {
   const [currentScreen, setCurrentScreen] = useState("Intro");
   const [targetScreen, setTargetScreen] = useState("Home");
+  const [isLoading, setIsLoading] = useState(true);
 
   const cameraTagetRef = useRef();
   const isSetup = useRef(false);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     project.ready.then(() => {
@@ -124,6 +130,15 @@ export const InteractiveMenu = () => {
             <Experience />
           </SheetProvider>
         </Canvas>
+        {!isLoading && (
+          <Loader
+            containerStyles={{ background: "rgba(9, 20, 60, 0.3)" }}
+            innerStyles={{ background: "#09143c" }}
+            barStyles={{ background: "#ffffff" }}
+            dataStyles={{ color: "#ffffff", fontSize: "14px" }}
+            dataInterpolation={(p) => `Cargando ${p.toFixed(2)}%`}
+          />
+        )}
       </section>
     </EmissiveProvider>
   );
