@@ -7,8 +7,8 @@ import { Experience } from "./experience";
 import { getProject } from "@theatre/core";
 import { PerspectiveCamera, SheetProvider } from "@theatre/r3f";
 
-import r3fExtension from "@theatre/r3f/dist/extension";
-import studio from "@theatre/studio";
+// import r3fExtension from "@theatre/r3f/dist/extension";
+// import studio from "@theatre/studio";
 
 import { editable as e } from "@theatre/r3f";
 
@@ -16,9 +16,9 @@ import projectState from "./assets/InteractiveMenu.json";
 import { EmissiveProvider } from "./EmissiveContext";
 import { Loader } from "@react-three/drei";
 
-studio.initialize();
-studio.extend(r3fExtension);
-studio.ui.hide();
+// studio.initialize();
+// studio.extend(r3fExtension);
+// studio.ui.hide();
 
 const project = getProject("InteractiveMenu", {
   state: projectState,
@@ -65,10 +65,6 @@ export const InteractiveMenu = () => {
   const isSetup = useRef(false);
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
     project.ready.then(() => {
       if (currentScreen === targetScreen) {
         return;
@@ -99,6 +95,7 @@ export const InteractiveMenu = () => {
           isAnimating={currentScreen !== targetScreen}
         />
         <Canvas
+          className="w-full h-full"
           camera={{
             position: [0, 0, 0],
             fov: 30,
@@ -107,6 +104,9 @@ export const InteractiveMenu = () => {
           }}
           gl={{
             preserveDrawingBuffer: true,
+          }}
+          onCreated={() => {
+            setTimeout(() => setIsLoading(false), 1000);
           }}
         >
           <SheetProvider sheet={mainSheet}>
@@ -123,6 +123,7 @@ export const InteractiveMenu = () => {
               theatreKey="Camera Target"
               visible="editor"
               ref={cameraTagetRef}
+              position={[0, 0, -1]}
             >
               <octahedronGeometry args={[0.1, 0]} />
               <meshPhongMaterial color="yellow" />
