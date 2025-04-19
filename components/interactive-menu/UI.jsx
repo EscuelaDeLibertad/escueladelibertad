@@ -129,7 +129,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Alquimia Interna
                   </div>
                 </div>
