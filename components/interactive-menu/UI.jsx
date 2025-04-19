@@ -1,286 +1,15 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
-import { useEmissive } from "./EmissiveContext";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
 
 export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
   const router = useRouter();
-  const isla1Button = useRef();
-  const isla2Button = useRef();
-  const isla3Button = useRef();
-  const isla4Button = useRef();
-  const isla5Button = useRef();
-  const isla6Button = useRef();
-  const isla7Button = useRef();
-  const isla8Button = useRef();
-  const isla9Button = useRef();
-  const isla10Button = useRef();
-  const isla11Button = useRef();
-  const isla12Button = useRef();
-  const isla13Button = useRef();
-  const [activeButton, setActiveButton] = useState(null); // Estado para controlar el botón activo
-  const [timelines, setTimelines] = useState({}); // Estado para almacenar timelines
-
-  const { setEmissiveIntensity, setActiveIsland } = useEmissive();
-
-  const handleButtonClick = (buttonKey) => {
-    onClickButton(buttonKey);
-    // Cambia la intensidad emisiva y la isla activa según el botón
-    switch (buttonKey) {
-      case "isla1":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla1");
-        break;
-      case "isla2":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla2");
-        break;
-      case "isla3":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla3");
-        break;
-      case "isla4":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla4");
-        break;
-      case "isla5":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla5");
-        break;
-      case "isla6":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla6");
-        break;
-      case "isla7":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla7");
-        break;
-      case "isla8":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla8");
-        break;
-      case "isla9":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla9");
-        break;
-      case "isla10":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla10");
-        break;
-      case "isla11":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla11");
-        break;
-      case "isla12":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla12");
-        break;
-      case "isla13":
-        setEmissiveIntensity(0.1);
-        setActiveIsland("isla13");
-        break;
-      default:
-        setEmissiveIntensity(0);
-        setActiveIsland(null);
-    }
-  };
-
-  useEffect(() => {
-    // Inicializa los timelines para cada botón
-    setTimelines({
-      isla1: gsap.timeline({ paused: true }).fromTo(
-        isla1Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla2: gsap.timeline({ paused: true }).fromTo(
-        isla2Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla3: gsap.timeline({ paused: true }).fromTo(
-        isla3Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla4: gsap.timeline({ paused: true }).fromTo(
-        isla4Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla5: gsap.timeline({ paused: true }).fromTo(
-        isla5Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla6: gsap.timeline({ paused: true }).fromTo(
-        isla6Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla7: gsap.timeline({ paused: true }).fromTo(
-        isla7Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: 56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla8: gsap.timeline({ paused: true }).fromTo(
-        isla8Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla9: gsap.timeline({ paused: true }).fromTo(
-        isla9Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla10: gsap.timeline({ paused: true }).fromTo(
-        isla10Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla11: gsap.timeline({ paused: true }).fromTo(
-        isla11Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla12: gsap.timeline({ paused: true }).fromTo(
-        isla12Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-      isla13: gsap.timeline({ paused: true }).fromTo(
-        isla13Button.current,
-        {
-          opacity: 0, // Estado inicial
-          y: 0, // Estado inicial
-        },
-        {
-          opacity: 1,
-          x: -56,
-          duration: 0.5,
-          ease: "power2.inOut",
-          zIndex: 0,
-        }
-      ),
-    });
-  }, []);
-
-  const onClickButton = (buttonKey) => {
-    if (activeButton && activeButton !== buttonKey) {
-      timelines[activeButton].reverse();
-    }
-    setActiveButton(buttonKey);
-    timelines[buttonKey].play();
-  };
 
   return (
     <>
@@ -325,218 +54,268 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
             : "opacity-0 pointer-events-none"
         }`}
         >
-          <div className="flex flex-col gap-4 mb-4 relative w-full h-full">
+          <div
+            className={`flex flex-col gap-4 mb-4 relative w-full h-full ${playfair.className} tracking-normal`}
+          >
             <div className="flex flex-row gap-1 mt-16 w-full h-full">
               <div className="w-full h-full flex-1">
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla1")}
-                    className="bg-[#94e9e3] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    1
-                  </button>
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla1")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla1Button}
+                    className="bg-[#94e9e3] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/riodelavida.svg"
+                      alt="Alkimia Interna"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     El Río de la Vida
-                  </button>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla2")}
-                    className="bg-[#ffe762] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    2
-                  </button>
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla2")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla2Button}
+                    className="bg-[#ffe762] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/sabiduriazen.svg"
+                      alt="Sabiduría Zen"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Sabiduría Zen
-                  </button>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla3")}
-                    className="bg-[#b7f033] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    3
-                  </button>
+
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla3")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla3Button}
+                    className="bg-[#b7f033] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/taomeditacioni.svg"
+                      alt="Tao de la Meditación I"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Tao de la Meditación I
-                  </button>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla4")}
-                    className="bg-[#efc1b7] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    4
-                  </button>
+
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla4")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla4Button}
+                    className="bg-[#efc1b7] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
-                    Alkimia Interna
+                    <img
+                      src="/assets/icons/alquimiainterna.svg"
+                      alt="Alquimia Interna"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
                   </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                    Alquimia Interna
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla5")}
-                    className="bg-[#0073b4] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    5
-                  </button>
+
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla5")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla5Button}
+                    className="bg-[#0073b4] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/reconexionarcoirica.svg"
+                      alt="Reconexión Arcoírica"
+                      className="w-7 h-7 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Reconexión Arcoírica
-                  </button>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla6")}
-                    className="bg-[#ff7e36] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    6
-                  </button>
+
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla6")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla6Button}
+                    className="bg-[#ff7e36] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/ruedadelavida.svg"
+                      alt="La Rueda de la Vida"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     La Rueda de la Vida
-                  </button>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start ml-6 relative mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla7")}
-                    className="bg-[#95bd3f] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    7
-                  </button>
+
+                <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla7")}
-                    className="absolute w-[150px] top-0 left-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla7Button}
+                    className="bg-[#95bd3f] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
-                    Tao en la Meditación II
+                    <img
+                      src="/assets/icons/taomeditacionii.svg"
+                      alt="Tao en la Meditación II"
+                      className="w-9 h-9 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
                   </button>
+                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                    Tao en la Meditación II
+                  </div>
                 </div>
               </div>
               <div className="w-full flex-1">
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla8")}
-                    className="bg-[#003e61] rounded-full w-10 h-10 text-white font-bold mb-2"
-                  >
-                    8
-                  </button>
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla8")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla8Button}
+                    className="bg-[#003e61] rounded-full w-10 h-10 text-white font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/chikungonirico.svg"
+                      alt="Chikung Onírico"
+                      className="w-7 h-7 filter"
+                      style={{
+                        filter:
+                          "drop-shadow(0 0 0.5px black) brightness(0) invert(1) ",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Chikung Onírico
-                  </button>
+                  </div>
                 </div>
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla9")}
-                    className="bg-[#e5c100] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    9
-                  </button>
+
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla9")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla9Button}
+                    className="bg-[#e5c100] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/budadelarisa.svg"
+                      alt="Buda de la Risa"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Buda de la Risa
-                  </button>
+                  </div>
                 </div>
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla10")}
-                    className="bg-[#001b19] rounded-full w-10 h-10 text-white font-bold mb-2"
-                  >
-                    10
-                  </button>
+
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla10")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla10Button}
+                    className="bg-[#1a524e] rounded-full w-10 h-10 text-white font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/taoenelamor.svg"
+                      alt="Tao en el Amor"
+                      className="w-9 h-9 filter"
+                      style={{
+                        filter:
+                          "drop-shadow(0 0 0.5px black) brightness(0) invert(1)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Tao en el Amor
-                  </button>
+                  </div>
                 </div>
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla11")}
-                    className="bg-[#812f88] rounded-full w-10 h-10 text-white font-bold mb-2"
-                  >
-                    11
-                  </button>
+
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla11")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla11Button}
+                    className="bg-[#812f88] rounded-full w-10 h-10 text-white font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/sempiternoi.svg"
+                      alt="Sempiterno I"
+                      className="w-8 h-8 filter"
+                      style={{
+                        filter:
+                          "drop-shadow(0 0 0.5px black) brightness(0) invert(1)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Sempiterno I
-                  </button>
+                  </div>
                 </div>
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla12")}
-                    className="bg-[#375d87] rounded-full w-10 h-10 text-white font-bold mb-2"
-                  >
-                    12
-                  </button>
+
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla12")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla12Button}
+                    className="bg-[#375d87] rounded-full w-10 h-10 text-white font-bold mb-2 flex items-center justify-center"
                   >
+                    <img
+                      src="/assets/icons/puertadeldragon.svg"
+                      alt="La Puerta del Dragón"
+                      className="w-7 h-7 filter"
+                      style={{
+                        filter:
+                          "drop-shadow(0 0 0.5px black) brightness(0) invert(1)",
+                      }}
+                    />
+                  </button>
+                  <div className="absolute flex items-center justify-center w-[195px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     La Puerta del Dragón
-                  </button>
+                  </div>
                 </div>
-                <div className="relative flex flex-col items-end justify-center mr-6 mb-3">
-                  <button
-                    onClick={() => handleButtonClick("isla13")}
-                    className="bg-[#f19858] rounded-full w-10 h-10 text-black font-bold mb-2"
-                  >
-                    13
-                  </button>
+
+                <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla13")}
-                    className="absolute w-[150px] top-0 right-0 text-xs bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10"
-                    ref={isla13Button}
+                    className="bg-[#f19858] rounded-full w-10 h-10 text-black font-bold mb-2 flex items-center justify-center"
                   >
-                    Retiros y Viajes
+                    <img
+                      src="/assets/icons/viajesyretiros.svg"
+                      alt="Retiros y Viajes"
+                      className="w-9 h-9 filter"
+                      style={{
+                        filter: "drop-shadow(0 0 0.5px black)",
+                      }}
+                    />
                   </button>
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                    Retiros y Viajes
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-0 w-full h-[100px] 2xl:h-[200px] flex items-end justify-start pl-40 2xl:pl-72 pt-28 z-[-10]">
-              <h1 className="text-4xl 2xl:text-5xl font-medium text-white opacity-40">
-                Constelación de Draco
+            <div className="absolute top-0 w-full h-[100px] 2xl:h-[200px] flex items-end justify-start pl-48 2xl:pl-80 pt-28 z-[-10]">
+              <h1 className="text-4xl 2xl:text-6xl font-medium text-white opacity-40">
+                El Gran Viaje
               </h1>
             </div>
-
-            {/* <p className="text-white text-sm font-thin">
-              lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </p> */}
           </div>
         </section>
       </main>
@@ -995,25 +774,6 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
           </div>
         </div>
       </section>
-      {/* <section
-				className={`fixed top-[50%] left-[15%] translate-x-[-50%] translate-y-[-50%] flex flex-col p-10 transition-opacity duration-1000 z-10 w-[600px] ${
-					currentScreen === "Isla1" && !isAnimating
-						? ""
-						: "opacity-0 pointer-events-none"
-				}`}
-			>
-				<div className="md:max-w-2xl">
-				<h2 className="text-7xl text-white opacity-90 font-extrabold -ml-1 pointer-events-none">
-						Gracias por visitar
-					</h2>
-					<p className="text-white mt-2">
-						Sint eu velit aute nostrud deserunt. In ipsum magna do amet ullamco
-						excepteur elit commodo sunt dolore dolor nostrud. Cupidatat
-						excepteur officia consequat quis veniam non proident irure laboris.
-						Eu duis dolore deserunt consectetur consectetur enim.
-					</p>
-				</div>
-			</section> */}
     </>
   );
 };

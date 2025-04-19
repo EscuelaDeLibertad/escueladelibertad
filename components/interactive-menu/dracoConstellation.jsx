@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import PlanetMaterialPorCurso from "./planetMaterialPorCurso";
@@ -8,25 +8,25 @@ import OutlineMaterialPorCurso from "./outlineMaterialPorCurso";
 export function DracoConstellation(props) {
   const group = React.useRef();
   const { nodes, materials, animations } = useGLTF(
-    "/assets/models/gltf/gltf/dracoConstellation.gltf"
+    "/assets/models/gltfvf/dracoConstellation.gltf"
   );
   const { actions } = useAnimations(animations, group);
 
   const colorIsla = "rgba(146, 180, 174, 20%)";
 
-  const [haCompradoCurso1, setHaCompradoCurso1] = useState(false);
+  const [haCompradoCurso1, setHaCompradoCurso1] = useState(true);
   const [haCompradoCurso2, setHaCompradoCurso2] = useState(false);
-  const [haCompradoCurso3, setHaCompradoCurso3] = useState(false);
+  const [haCompradoCurso3, setHaCompradoCurso3] = useState(true);
   const [haCompradoCurso4, setHaCompradoCurso4] = useState(false);
-  const [haCompradoCurso5, setHaCompradoCurso5] = useState(false);
+  const [haCompradoCurso5, setHaCompradoCurso5] = useState(true);
   const [haCompradoCurso6, setHaCompradoCurso6] = useState(false);
-  const [haCompradoCurso7, setHaCompradoCurso7] = useState(false);
+  const [haCompradoCurso7, setHaCompradoCurso7] = useState(true);
   const [haCompradoCurso8, setHaCompradoCurso8] = useState(false);
-  const [haCompradoCurso9, setHaCompradoCurso9] = useState(false);
+  const [haCompradoCurso9, setHaCompradoCurso9] = useState(true);
   const [haCompradoCurso10, setHaCompradoCurso10] = useState(false);
-  const [haCompradoCurso11, setHaCompradoCurso11] = useState(false);
+  const [haCompradoCurso11, setHaCompradoCurso11] = useState(true);
   const [haCompradoCurso12, setHaCompradoCurso12] = useState(false);
-  const [haCompradoCurso13, setHaCompradoCurso13] = useState(false);
+  const [haCompradoCurso13, setHaCompradoCurso13] = useState(true);
 
   const isla1Ref = useRef();
   const isla2Ref = useRef();
@@ -44,6 +44,7 @@ export function DracoConstellation(props) {
   const isla12Ref = useRef();
   const isla12RefPortal1 = useRef();
   const isla13Ref = useRef();
+  const isla13ShipRef = useRef();
 
   const planetaIsla1Ref = useRef();
   const planetaIsla2Ref = useRef();
@@ -63,9 +64,9 @@ export function DracoConstellation(props) {
 
   // Animaciones
   useEffect(() => {
-    actions["dragonShipIsla13Action"].play();
+    // console.log(actions);
     actions["lightIsla10Action.002"].play();
-    actions["paisajesIsla6Action.002"].play();
+    actions["paisajesIsla6Action.001"].play();
     actions["starsIsla10Action.002"].play();
   }, []);
 
@@ -86,7 +87,18 @@ export function DracoConstellation(props) {
   }, []);
 
   // Movimiento Islas
-  useFrame(() => {
+  useFrame(({ clock }) => {
+    // Rotación simple del barco de la isla 13 sobre su propio eje
+    if (isla13ShipRef.current) {
+      // Velocidad de rotación
+      const rotationSpeed = -0.5;
+      // Tiempo transcurrido
+      const elapsedTime = clock.getElapsedTime();
+
+      // Aplicar rotación en el eje Y (giro horizontal)
+      isla13ShipRef.current.rotation.y = elapsedTime * rotationSpeed;
+    }
+
     if (
       isla1Ref.current ||
       isla2Ref.current ||
@@ -103,54 +115,83 @@ export function DracoConstellation(props) {
       isla13Ref.current
     ) {
       // Sensibilidad de la rotación
-      const rotationSpeedX = 2;
+      const rotationSpeedX = 2.55;
+      const rotationSpeedY = 1;
+      // Ángulo máximo de rotación en radianes (180 grados = π radianes para Y, 20 grados = π/9 radianes para X)
+      const maxRotationY = (Math.PI * 200) / 180; // 200 degrees
+      const maxRotationX = Math.PI / 9; // 15 degrees
+
+      // Limitar la rotación al ángulo máximo
+      const limitedRotationY = Math.min(
+        Math.max(mousePosition.x * rotationSpeedX, -maxRotationY),
+        maxRotationY
+      );
+      const limitedRotationX = Math.min(
+        Math.max(mousePosition.y * rotationSpeedY, -maxRotationX),
+        maxRotationX
+      );
 
       if (isla1Ref.current) {
-        isla1Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla1Ref.current.rotation.y = limitedRotationY;
+        isla1Ref.current.rotation.x = limitedRotationX;
       }
       if (isla2Ref.current) {
-        isla2Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla2Ref.current.rotation.y = limitedRotationY;
+        isla2Ref.current.rotation.x = limitedRotationX;
       }
       if (isla3Ref.current) {
-        isla3Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla3Ref.current.rotation.y = limitedRotationY;
+        isla3Ref.current.rotation.x = limitedRotationX;
       }
       if (isla4Ref.current) {
-        isla4Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla4Ref.current.rotation.y = limitedRotationY;
+        isla4Ref.current.rotation.x = limitedRotationX;
       }
       if (isla5Ref.current) {
-        isla5Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla5Ref.current.rotation.y = limitedRotationY;
+        isla5Ref.current.rotation.x = limitedRotationX;
       }
       if (isla6Ref.current) {
-        isla6Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla6Ref.current.rotation.y = limitedRotationY;
+        // isla6Ref.current.rotation.x = limitedRotationX;
       }
       if (isla7Ref.current) {
-        isla7Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla7Ref.current.rotation.y = limitedRotationY;
+        isla7Ref.current.rotation.x = limitedRotationX;
       }
       if (isla8Ref.current) {
-        isla8Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla8Ref.current.rotation.y = limitedRotationY;
+        isla8Ref.current.rotation.x = limitedRotationX;
       }
       if (isla9Ref.current) {
-        isla9Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla9Ref.current.rotation.y = limitedRotationY;
+        isla9Ref.current.rotation.x = limitedRotationX;
       }
       if (isla10Ref.current) {
-        isla10Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla10Ref.current.rotation.y = limitedRotationY;
+        isla10Ref.current.rotation.x = limitedRotationX;
       }
       if (isla11Ref.current) {
-        isla11Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla11Ref.current.rotation.y = limitedRotationY;
+        isla11Ref.current.rotation.x = limitedRotationX;
       }
       if (isla11RefPortal1.current) {
         isla11RefPortal1.current.position.set(255.236, 635.942, 0.004);
-        isla11RefPortal1.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla11RefPortal1.current.rotation.y = limitedRotationY;
+        isla11RefPortal1.current.rotation.x = limitedRotationX;
       }
       if (isla11RefPortal2.current) {
         isla11RefPortal2.current.position.set(255.236, 635.942, 0.004);
-        isla11RefPortal2.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla11RefPortal2.current.rotation.y = limitedRotationY;
+        isla11RefPortal2.current.rotation.x = limitedRotationX;
       }
       if (isla12Ref.current) {
-        isla12Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla12Ref.current.rotation.y = limitedRotationY;
+        isla12Ref.current.rotation.x = limitedRotationX;
       }
       if (isla13Ref.current) {
-        isla13Ref.current.rotation.y = mousePosition.x * rotationSpeedX;
+        isla13Ref.current.rotation.y = limitedRotationY;
+        isla13Ref.current.rotation.x = limitedRotationX;
       }
     }
 
@@ -169,23 +210,18 @@ export function DracoConstellation(props) {
       planetaIsla12Ref.current.rotation.y += 0.0007;
       planetaIsla13Ref.current.rotation.y += 0.0007;
     }
-
-    if (isla12RefPortal1.current) {
-      // isla12RefPortal1.current.rotation.set(0.014, 0.418, -0.031);
-      isla12RefPortal1.current.rotation.z += 0.002;
-    }
   });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         {/* Isla1 */}
-        <group ref={planetaIsla1Ref} position={[-465.363, 46.52, 0.39]}>
+        <group ref={planetaIsla1Ref} position={[-349.806, 26.739, 0.39]}>
           <mesh
             name="planetaIsla1"
             geometry={nodes.planetaIsla1.geometry}
             position={[0, 0, 0]}
-            scale={[1.858, 1.89, 1.858]}
+            scale={[2.491, 2.533, 2.491]}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso1}
@@ -194,7 +230,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla1Ref} position={[-465.694, 47.287, 0.269]}>
+        <group ref={isla1Ref} position={[-349.806, 26.739, 0.39]}>
           <group name="baseIsla1" position={[0, 0, 0]}>
             <mesh name="baseIsla1_1" geometry={nodes.baseIsla1_1.geometry}>
               <MeshMaterialPorCurso
@@ -295,12 +331,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla2 */}
-        <group ref={planetaIsla2Ref} position={[-401.123, 266.874, 101.406]}>
+        <group ref={planetaIsla2Ref} position={[-296.009, 254.483, 101.406]}>
           <mesh
             name="planetIsla2"
             geometry={nodes.planetIsla2.geometry}
             position={[0, 0, 0]}
-            scale={2.476}
+            scale={4.531}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso2}
@@ -309,7 +345,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla2Ref} position={[-400.949, 266.377, 100.272]}>
+        <group ref={isla2Ref} position={[-296.009, 254.483, 101.406]}>
           <mesh
             name="accesoriosIsla2"
             geometry={nodes.accesoriosIsla2.geometry}
@@ -473,12 +509,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla3 */}
-        <group ref={planetaIsla3Ref} position={[-238.729, 434.493, -141.666]}>
+        <group ref={planetaIsla3Ref} position={[-176.904, 456.702, -141.666]}>
           <mesh
             name="planetaIsla3"
             geometry={nodes.planetaIsla3.geometry}
             position={[0, 0, 0]}
-            scale={2.495}
+            scale={3.345}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso3}
@@ -487,7 +523,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla3Ref} position={[-238.579, 434.436, -141.514]}>
+        <group ref={isla3Ref} position={[-176.904, 456.702, -141.666]}>
           <mesh
             name="accesoriosIsla3"
             geometry={nodes.accesoriosIsla3.geometry}
@@ -627,12 +663,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla4 */}
-        <group ref={planetaIsla4Ref} position={[-131.3, 455.913, 0.001]}>
+        <group ref={planetaIsla4Ref} position={[-59.885, 506.001, 0.001]}>
           <mesh
             name="planetaIsla4"
             geometry={nodes.planetaIsla4.geometry}
             position={[0, 0, 0]}
-            scale={[2.489, 2.488, 2.489]}
+            scale={[4.825, 4.823, 4.825]}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso4}
@@ -641,7 +677,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla4Ref} position={[-130.784, 456.819, 0.323]}>
+        <group ref={isla4Ref} position={[-59.885, 506.001, 0.001]}>
           <group name="accesoriosIsla4" position={[0.006, 0.006, 0.037]}>
             <mesh
               name="accesoriosIsla4_1"
@@ -780,12 +816,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla5 */}
-        <group ref={planetaIsla5Ref} position={[-44.814, 399.177, -141.837]}>
+        <group ref={planetaIsla5Ref} position={[31.021, 436.4, -141.837]}>
           <mesh
             name="planetaIsla5"
             geometry={nodes.planetaIsla5.geometry}
             position={[0, 0, 0]}
-            scale={2.276}
+            scale={3.051}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso5}
@@ -794,7 +830,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla5Ref} position={[-44.997, 400.952, -142.278]}>
+        <group ref={isla5Ref} position={[31.021, 436.4, -141.837]}>
           <group name="clothesIsla5" position={[0.077, -0.032, 0.506]}>
             <mesh
               name="clothesIsla5_1"
@@ -929,7 +965,7 @@ export function DracoConstellation(props) {
         <group
           ref={isla6Ref}
           name="boxIsla6"
-          position={[169.152, 223.484, 0.175]}
+          position={[129.078, 345.105, 0.175]}
         >
           <pointLight position={[0, 6, 3]} intensity={2} color="#ffffff" />
           <mesh name="boxIsla6_1" geometry={nodes.boxIsla6_1.geometry}>
@@ -960,7 +996,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group name="paisajesIsla6" position={[169.162, 223.201, 0.025]}>
+        <group name="paisajesIsla6" position={[129.082, 344.917, -0.015]}>
           <mesh
             name="paisajesIsla6_1"
             geometry={nodes.paisajesIsla6_1.geometry}
@@ -1132,8 +1168,8 @@ export function DracoConstellation(props) {
           name="planetIsla6"
           ref={planetaIsla6Ref}
           geometry={nodes.planetIsla6.geometry}
-          position={[169.027, 222.877, 0]}
-          scale={1.788}
+          position={[128.953, 344.498, 0]}
+          scale={3.996}
         >
           <PlanetMaterialPorCurso
             haComprado={haCompradoCurso6}
@@ -1143,12 +1179,12 @@ export function DracoConstellation(props) {
         </mesh>
 
         {/* Isla7 */}
-        <group ref={planetaIsla7Ref} position={[255.605, 77.1, 131.597]}>
+        <group ref={planetaIsla7Ref} position={[219.184, 174.621, 131.597]}>
           <mesh
             name="planetIsla7"
             geometry={nodes.planetIsla7.geometry}
             position={[0, 0, 0]}
-            scale={1.791}
+            scale={2.401}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso7}
@@ -1157,7 +1193,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla7Ref} position={[255.729, 77.107, 131.623]}>
+        <group ref={isla7Ref} position={[219.184, 174.621, 131.597]}>
           <group name="acceoriesIsla7" position={[-0.044, 0.254, -0.382]}>
             <mesh name="Circle024" geometry={nodes.Circle024.geometry}>
               <MeshMaterialPorCurso
@@ -1304,12 +1340,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla8 */}
-        <group ref={planetaIsla8Ref} position={[461.375, 13.28, -169.478]}>
+        <group ref={planetaIsla8Ref} position={[425.214, 98.868, -21.638]}>
           <mesh
             name="planetaIsla8"
             geometry={nodes.planetaIsla8.geometry}
             position={[0, 0, 0]}
-            scale={1.788}
+            scale={3.247}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso8}
@@ -1318,7 +1354,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla8Ref} position={[461.375, 13.28, -169.478]}>
+        <group ref={isla8Ref} position={[425.214, 98.868, -21.638]}>
           <group name="ballIsla8" position={[0.529, 0.402, 0.002]}>
             <mesh name="ballIsla8_1" geometry={nodes.ballIsla8_1.geometry}>
               <OutlineMaterialPorCurso
@@ -1466,12 +1502,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla9 */}
-        <group ref={planetaIsla9Ref} position={[400.989, 316.837, 158.804]}>
+        <group ref={planetaIsla9Ref} position={[363.949, 284.728, 158.804]}>
           <mesh
             name="planetaIsla9"
             geometry={nodes.planetaIsla9.geometry}
             position={[0, 0, 0]}
-            scale={1.785}
+            scale={2.393}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso9}
@@ -1480,7 +1516,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla9Ref} position={[400.989, 316.837, 158.804]}>
+        <group ref={isla9Ref} position={[363.949, 284.728, 158.804]}>
           <group name="baseIsla9" position={[-0.1, -0.04, 0.301]}>
             <pointLight
               position={[-0.1, 6, 1.3]}
@@ -1577,7 +1613,7 @@ export function DracoConstellation(props) {
             name="planetaIsla10"
             geometry={nodes.planetaIsla10.geometry}
             position={[0, 0, 0]}
-            scale={1.785}
+            scale={2.393}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso10}
@@ -1719,7 +1755,7 @@ export function DracoConstellation(props) {
             name="planetaIsla11"
             geometry={nodes.planetaIsla11.geometry}
             position={[0, 0, 0]}
-            scale={[1.785, 1.799, 1.785]}
+            scale={[3.286, 3.311, 3.286]}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso11}
@@ -1868,12 +1904,12 @@ export function DracoConstellation(props) {
         </mesh>
 
         {/* Isla12 */}
-        <group ref={planetaIsla12Ref} position={[431.711, 672.313, 0.365]}>
+        <group ref={planetaIsla12Ref} position={[319.88, 751.356, 0.365]}>
           <mesh
             name="planetaIsla12"
             geometry={nodes.planetaIsla12.geometry}
             position={[0, 0, 0]}
-            scale={[1.816, 1.787, 1.816]}
+            scale={[2.434, 2.395, 2.434]}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso12}
@@ -1882,7 +1918,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla12Ref} position={[431.711, 672.313, 0.365]}>
+        <group ref={isla12Ref} position={[319.88, 751.356, 0.365]}>
           <group name="characterIsla12" position={[-0.126, 0.773, -0.307]}>
             <mesh
               name="characterIsla12_1"
@@ -2024,12 +2060,12 @@ export function DracoConstellation(props) {
         </group>
 
         {/* Isla13 */}
-        <group ref={planetaIsla13Ref} position={[317.233, 759.986, 0.284]}>
+        <group ref={planetaIsla13Ref} position={[504.314, 703.003, 0]}>
           <mesh
             name="planetaIsla13"
             geometry={nodes.planetaIsla13.geometry}
             position={[0, 0, 0]}
-            scale={[0.566, 0.567, 0.566]}
+            scale={1.057}
           >
             <PlanetMaterialPorCurso
               haComprado={haCompradoCurso13}
@@ -2038,7 +2074,7 @@ export function DracoConstellation(props) {
             />
           </mesh>
         </group>
-        <group ref={isla13Ref} position={[317.233, 759.986, 0.284]}>
+        <group ref={isla13Ref} position={[504.314, 703.003, 0]}>
           <group
             name="arbolesIsla13"
             position={[-0.206, 0.092, -0.317]} // 317.027-317.233, 760.078-759.986, -0.033-0.284
@@ -2487,8 +2523,9 @@ export function DracoConstellation(props) {
           </group>
         </group>
         <group
+          ref={isla13ShipRef}
           name="dragonShipIsla13"
-          position={[316.949, 760.385, -0.001]}
+          position={[504.314, 703.003, 0]}
           scale={0.441}
         >
           <mesh
@@ -2606,12 +2643,18 @@ export function DracoConstellation(props) {
           name="linesDraco"
           geometry={nodes.linesDraco.geometry}
           material={materials.Material}
-          position={[376.495, 716.458, -0.175]} // 376.495-317.233, 716.458-759.986, -0.175-0.284
-          rotation={[1.219, -0.647, -1.781]}
+          position={[376.495, 716.458, -0.175]}
+        />
+        <mesh
+          name="starsDraco"
+          geometry={nodes.starsDraco.geometry}
+          material={materials.starsConstMat}
+          position={[-469.153, 691.195, 0]}
+          scale={9.191}
         />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/assets/models/gltf/gltf/dracoConstellation.gltf");
+useGLTF.preload("/assets/models/gltfvf/dracoConstellation.gltf");
