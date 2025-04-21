@@ -1,10 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Playfair_Display } from "next/font/google";
+import { Libre_Baskerville } from "next/font/google";
 
-const playfair = Playfair_Display({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -55,10 +55,10 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
         }`}
         >
           <div
-            className={`flex flex-col gap-4 mb-4 relative w-full h-full ${playfair.className} tracking-normal`}
+            className={`flex flex-col gap-4 mb-4 relative w-full h-full ${libreBaskerville.className} tracking-normal`}
           >
             <div className="flex flex-row gap-1 mt-16 w-full h-full">
-              <div className="w-full h-full flex-1">
+              <div className="w-full h-full flex-1 relative z-10">
                 <div className="flex flex-col items-start ml-6 relative mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla1")}
@@ -73,7 +73,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     El Río de la Vida
                   </div>
                 </div>
@@ -91,7 +91,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Sabiduría Zen
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[210px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Tao de la Meditación I
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Alquimia Interna
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[210px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Reconexión Arcoírica
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[180px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[210px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     La Rueda de la Vida
                   </div>
                 </div>
@@ -186,12 +186,12 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[195px] top-0 left-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
+                  <div className="absolute flex items-center justify-center w-[215px] top-0 left-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[56px]">
                     Tao en la Meditación II
                   </div>
                 </div>
               </div>
-              <div className="w-full flex-1">
+              <div className="w-full flex-1 mt-7">
                 <div className="relative flex flex-col items-end justify-center mr-6 mb-3 group">
                   <button
                     onClick={() => onChangeScreen("Isla8")}
@@ -207,7 +207,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Chikung Onírico
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Buda de la Risa
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Tao en el Amor
                   </div>
                 </div>
@@ -266,7 +266,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Sempiterno I
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[195px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[210px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     La Puerta del Dragón
                   </div>
                 </div>
@@ -305,14 +305,14 @@ export const UI = ({ currentScreen, onChangeScreen, isAnimating }) => {
                       }}
                     />
                   </button>
-                  <div className="absolute flex items-center justify-center w-[150px] top-0 right-0 text-sm bg-sky-200 bg-opacity-50 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
+                  <div className="absolute flex items-center justify-center w-[180px] top-0 right-0 text-sm bg-slate-400 bg-opacity-95 py-3 px-6 rounded-md text-white opacity-0 font-medium -z-10 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-[-56px]">
                     Retiros y Viajes
                   </div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-0 w-full h-[100px] 2xl:h-[200px] flex items-end justify-start pl-48 2xl:pl-80 pt-28 z-[-10]">
-              <h1 className="text-4xl 2xl:text-6xl font-medium text-white opacity-40">
+            <div className="absolute top-0 w-full h-[120px] 2xl:h-[200px] flex items-end justify-start pl-40 2xl:pl-80 pt-28 z-[-10]">
+              <h1 className="text-5xl 2xl:text-6xl font-bold text-white">
                 El Gran Viaje
               </h1>
             </div>
